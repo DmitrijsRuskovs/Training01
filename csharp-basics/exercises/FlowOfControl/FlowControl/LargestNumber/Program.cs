@@ -4,24 +4,28 @@ namespace LargestNumber
 {
     class Program
     {
-        //TODO: Write a C# program to to find the largest of three numbers.
+        
         static void Main(string[] args)
         {
+            int input1, input2, input3;
             Console.WriteLine("Input the 1st number: ");
-            var input1 = Console.ReadLine();
-
+            var keyboard = Console.ReadLine();
+            Int32.TryParse(keyboard, out input1);
             Console.WriteLine("Input the 2nd number: ");
-            var input2 = Console.ReadLine();
+            keyboard = Console.ReadLine();
+            Int32.TryParse(keyboard, out input2);
 
             Console.WriteLine("Input the 3rd number: ");
-            var input3 = Console.ReadLine();
-        
-            /*
-            todo - expected output:
-            Input the 1st number: 25
-            Input the 2nd number: 78
-            Input the 3rd number: 87
-             */
+            keyboard = Console.ReadLine();
+            Int32.TryParse(keyboard, out input3);
+
+            int largest = input1;
+            if (input2 > largest) largest = input2;
+            if (input3 > largest) largest = input3;
+
+            Console.WriteLine($"The largest number is {largest}");
+
+            Console.ReadKey();
         }
     }
 }
