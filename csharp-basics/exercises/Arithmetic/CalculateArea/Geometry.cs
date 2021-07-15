@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CalculateArea
 {
@@ -10,17 +7,21 @@ namespace CalculateArea
     {
         public static double areaOfCircle(decimal radius)
         {
-            throw new NotImplementedException();
+            if (radius <= 0) throw new NotImplementedException("Error! Enter positive arguments!");
+            else return Math.PI * (double)radius * (double)radius;
         }
 
         public static double areaOfRectangle(decimal length, decimal width)
         {
-            throw new NotImplementedException();
+            if (length <= 0 || width <= 0) throw new NotImplementedException("Error! Enter positive arguments!");
+            else return (double)length * (double)width;
         }
 
         public static double areaOfTriangle(decimal ground, decimal h)
         {
-            throw new NotImplementedException();
+            if (ground<=0 || h <=0) throw new NotImplementedException("Error! Enter positive arguments!");
+            else return (double)ground * (double)h / 2;
+            
         }
     }
 }
