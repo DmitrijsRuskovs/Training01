@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckOddEven", "Excercise2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumAverageRunningInt", "SumAverageRunningInt1\SumAverageRunningInt.csproj", "{3234574B-3CB2-437F-A9FB-65B41499F70B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product1ToN", "Product1ToN\Product1ToN.csproj", "{65A8B0A1-0F69-4223-BCC6-DDA6A39499B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3234574B-3CB2-437F-A9FB-65B41499F70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3234574B-3CB2-437F-A9FB-65B41499F70B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3234574B-3CB2-437F-A9FB-65B41499F70B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A8B0A1-0F69-4223-BCC6-DDA6A39499B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A8B0A1-0F69-4223-BCC6-DDA6A39499B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A8B0A1-0F69-4223-BCC6-DDA6A39499B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A8B0A1-0F69-4223-BCC6-DDA6A39499B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
