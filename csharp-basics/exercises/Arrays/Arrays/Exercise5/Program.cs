@@ -13,22 +13,10 @@ namespace Exercise5
         {
             int[] myArray = {25, 14, 56, 15, 36, 56, 77, 18, 29, 49};
 
-            var indexOfElement36 = -1;
-            var indexOfElement29 = -1;
+            Console.WriteLine($"Index position of 36 is: {Array.IndexOf(myArray,36)}");
+            Console.WriteLine($"Index position of 29 is: {Array.IndexOf(myArray, 29)}");
 
-            /*
-            fixme
-            for (?) {
-                
-            }
-            */
-            Console.WriteLine("Index position of 36 is: " + indexOfElement36);
-            Console.WriteLine("Index position of 29 is: " + indexOfElement29);
-            
-            //Expected output:
-            //Index position of 36 is: 4
-            //Index position of 29 is: 8
-            
+            Console.ReadKey();
         }
     }
 }
