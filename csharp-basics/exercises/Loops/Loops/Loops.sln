@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsciiFigure", "AsciiFigure\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollTwoDice", "RollTwoDice\RollTwoDice.csproj", "{C50C1988-8BDB-4248-A592-2126B1968A21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberSquare", "NumberSquare\NumberSquare.csproj", "{4AA3C997-5231-49FA-9D8A-E74DE8ECFFA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{C50C1988-8BDB-4248-A592-2126B1968A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C50C1988-8BDB-4248-A592-2126B1968A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C50C1988-8BDB-4248-A592-2126B1968A21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA3C997-5231-49FA-9D8A-E74DE8ECFFA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA3C997-5231-49FA-9D8A-E74DE8ECFFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA3C997-5231-49FA-9D8A-E74DE8ECFFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA3C997-5231-49FA-9D8A-E74DE8ECFFA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
