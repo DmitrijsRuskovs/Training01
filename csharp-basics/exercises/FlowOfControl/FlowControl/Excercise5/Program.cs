@@ -17,8 +17,8 @@ namespace Excercise5
                    else resultLine += (((int)keyboard[i] - 65) / 3 + 2).ToString();
                 }
             }
-            Console.WriteLine($" String is converted by mobile to {resultLine}");
 
+            Console.WriteLine($" String is converted by mobile to {resultLine}");
             resultLine = "";
             for (int i = 0; i < keyboard.Length; i++)
             {
@@ -35,9 +35,9 @@ namespace Excercise5
                     default: break;
                 }
             }
-            Console.WriteLine($" String is converted by mobile to {resultLine}");
 
-                Console.ReadKey();
+            Console.WriteLine($" String is converted by mobile to {resultLine}");
+            Console.ReadKey();
         }
     }
 }

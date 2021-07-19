@@ -51,7 +51,7 @@ namespace PrintDayInWord
                     break;
             }
             
-                Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }
