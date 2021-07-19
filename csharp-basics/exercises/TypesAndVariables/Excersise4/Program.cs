@@ -15,7 +15,7 @@ namespace Excersise4
             int year = Convert.ToInt32(Console.ReadLine());
 
             
-            Console.WriteLine($"My name is {name} and I was born in {year.ToString()}.");
+            Console.WriteLine($"My name is {name} and I was born in {year}.");
             Console.ReadKey();
         }
     }

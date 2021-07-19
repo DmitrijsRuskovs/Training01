@@ -10,16 +10,12 @@ namespace VariablesAndNames
             int seatsInCar = 4;
             int drivers = 35;
             int passengers = 38;
-            int carsDriven = (drivers>cars) ? cars : drivers;
-             
+            int carsDriven = (drivers>cars) ? cars : drivers;            
             int carpoolCapacity = carsDriven * seatsInCar;
             int carsNotDriven = cars - carsDriven;
-            int passengersDriven =  (passengers > carpoolCapacity) ? carpoolCapacity : passengers;
-           
+            int passengersDriven =  (passengers > carpoolCapacity) ? carpoolCapacity : passengers;          
             carsDriven = (int)Math.Ceiling((double)passengersDriven / (double)seatsInCar);
-
             double averagePassengersPerCar =  (double)passengersDriven / (double)carsDriven;
-
             Console.WriteLine("There are " + cars + " cars available.");
             Console.WriteLine("There are only " + drivers + " drivers available.");
             Console.WriteLine("There will be " + carsNotDriven + " empty cars today.");

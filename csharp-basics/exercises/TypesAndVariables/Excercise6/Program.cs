@@ -15,8 +15,8 @@ namespace Excercise6
                 int number=Int32.Parse(Console.ReadLine());
                 sum += number;
             }
-            Console.WriteLine("Sum of all Your numbers seems to be "+sum.ToString());
 
+            Console.WriteLine("Sum of all Your numbers seems to be "+sum.ToString());
             Console.ReadKey();
         }
     }

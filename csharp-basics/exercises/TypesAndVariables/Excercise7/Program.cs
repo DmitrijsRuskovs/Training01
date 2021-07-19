@@ -14,8 +14,8 @@ namespace Excercise7
             {
                 if (word[i]!=lowerWord[i]) sum ++;
             }
-            Console.WriteLine("There are " + sum.ToString()+" capitals in Your word, Liva");
 
+            Console.WriteLine("There are " + sum.ToString()+" capitals in Your word, Liva");
             Console.ReadKey();
         }
     }

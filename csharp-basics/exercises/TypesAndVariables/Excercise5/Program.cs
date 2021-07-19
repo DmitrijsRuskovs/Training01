@@ -20,8 +20,8 @@ namespace Excercise5
                 line += teachers[i] + "|";
                 Console.WriteLine(line);
             }
-            Console.WriteLine("+-------------------------------------------------------------+");
 
+            Console.WriteLine("+-------------------------------------------------------------+");
             Console.ReadKey();
         }
     }
