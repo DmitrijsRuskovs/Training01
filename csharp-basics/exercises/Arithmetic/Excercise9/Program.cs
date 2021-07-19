@@ -12,7 +12,6 @@ namespace Excercise9
             if (BMI > 25) Console.WriteLine($"You are overweight. BMI is {BMI.ToString("0.00")}");
             else if (BMI < 18.5) Console.WriteLine($"You are underweight. BMI is {BMI.ToString("0.00")}");
             else Console.WriteLine($"You are of optimal weight. BMI is {BMI.ToString("0.00")}");
-
             Console.ReadKey();  
         }
     }

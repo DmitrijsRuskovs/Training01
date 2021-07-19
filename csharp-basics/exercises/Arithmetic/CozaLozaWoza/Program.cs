@@ -9,7 +9,6 @@ namespace CozaLozaWoza
             const int numbersPerLine = 11;
             const int lowerBound = 1;
             const int higherBound = 111;
-
             int currentIndex = lowerBound-1;
             while (currentIndex<higherBound+1)
             {
@@ -24,12 +23,10 @@ namespace CozaLozaWoza
                     if (currentIndex % 7 == 0) currentLine += "Woza";
                     if (currentLine.Length == 0) currentLine += currentIndex.ToString();
                     numberSetLine += currentLine + " ";
-
-
                 }
+
                 Console.WriteLine(numberSetLine);
             }
-
 
             Console.ReadKey();
         }

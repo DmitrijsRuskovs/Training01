@@ -7,8 +7,7 @@ namespace Excercise5
         static void Main(string[] args)
         {
             const int numberOfGuesses = 2;
-            Random rnd = new Random();
-            
+            Random rnd = new Random();          
             for (int i=1; i<=numberOfGuesses;i++)
             {
                 int randomNumber = rnd.Next(1, 101);
@@ -18,9 +17,8 @@ namespace Excercise5
                 if (number > randomNumber) Console.WriteLine($"Sorry, you are too high.  I was thinking of {randomNumber}");
                 if (number == randomNumber) Console.WriteLine($"You guessed it!  What are the odds?!?");
             }
-            Console.ReadKey();
 
-        }                     
-        
+            Console.ReadKey();
+        }                            
     }
 }
