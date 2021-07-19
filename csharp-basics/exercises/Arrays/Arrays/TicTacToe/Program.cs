@@ -30,14 +30,17 @@ namespace TicTacToe
                     else if (board[row, column] != ' ') messageToUser = "This cell is already ocuupied. Please enter another cell!";
                     Console.WriteLine(messageToUser);
                 } while (messageToUser != "");
+
                 if (turnOfX) board[row, column] = 'X';
                 else board[row, column] = 'O';
                 DisplayBoard();
             } while (!SomebodyWon()&&!IsFull());
+
             if (SomebodyWon()) {
                 if (turnOfX) messageToUser = "Wow! X has won!";
                 else messageToUser = "Foooooo! O has managed to do smth!";
             }
+
             else messageToUser = "Nobody has won";
             Console.WriteLine(messageToUser);
             Console.ReadKey();
@@ -48,25 +51,21 @@ namespace TicTacToe
             // fills up the board with blanks
             for (var r = 0; r < 3; r++)
             {
-                for (var c = 0; c < 3; c++)
-                    board[r, c] = ' ';
-            }
-            
+                for (var c = 0; c < 3; c++) board[r, c] = ' ';
+            }          
         }
 
         private static bool SomebodyWon()
         {
-            bool result = false;
-            if (board[0, 0] == board[0, 1] && board[0, 1] == board[0, 2] && board[0, 0] != ' ') result = true;
-            if (board[1, 0] == board[1, 1] && board[1, 1] == board[1, 2] && board[1, 1] != ' ') result = true;
-            if (board[2, 0] == board[2, 1] && board[2, 1] == board[2, 2] && board[2, 2] != ' ') result = true;
-            if (board[0, 0] == board[1, 0] && board[1, 0] == board[2, 0] && board[0, 0] != ' ') result = true;
-            if (board[0, 1] == board[1, 1] && board[1, 1] == board[2, 1] && board[1, 1] != ' ') result = true;
-            if (board[0, 2] == board[1, 2] && board[1, 2] == board[2, 2] && board[2, 2] != ' ') result = true;
-            if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[1, 1] != ' ') result = true;
-            if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0] && board[1, 1] != ' ') result = true;
-
-            return result;
+            return
+            (board[0, 0] == board[0, 1] && board[0, 1] == board[0, 2] && board[0, 0] != ' ') ||
+            (board[1, 0] == board[1, 1] && board[1, 1] == board[1, 2] && board[1, 1] != ' ') ||
+            (board[2, 0] == board[2, 1] && board[2, 1] == board[2, 2] && board[2, 2] != ' ') ||
+            (board[0, 0] == board[1, 0] && board[1, 0] == board[2, 0] && board[0, 0] != ' ') ||
+            (board[0, 1] == board[1, 1] && board[1, 1] == board[2, 1] && board[1, 1] != ' ') ||
+            (board[0, 2] == board[1, 2] && board[1, 2] == board[2, 2] && board[2, 2] != ' ') ||
+            (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2] && board[1, 1] != ' ') ||
+            (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0] && board[1, 1] != ' '); 
         }
 
         private static bool IsFull()
@@ -75,8 +74,11 @@ namespace TicTacToe
             for (var r = 0; r < 3; r++)
             {
                 for (var c = 0; c < 3; c++)
-                    if (board[r, c] == ' ') result = false; ;
+                {
+                    if (board[r, c] == ' ') result = false;
+                }
             }
+
             return result;
         }
         private static void DisplayBoard()

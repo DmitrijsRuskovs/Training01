@@ -14,7 +14,6 @@ namespace Exercise2
             int minNumber = int.Parse(Console.ReadLine());
             Console.WriteLine("Please enter a max number");
             int maxNumber = int.Parse(Console.ReadLine());
-
             for (int i = 0; i < myArray.Length; i++)
             {
                 sum += myArray[i];
@@ -28,8 +27,7 @@ namespace Exercise2
             }
 
             Console.WriteLine("The sum of the chosen range is " + sum);
-
             Console.ReadKey();
-            }
         }
+    }
 }

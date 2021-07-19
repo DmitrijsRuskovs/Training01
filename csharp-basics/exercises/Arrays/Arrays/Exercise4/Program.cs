@@ -24,6 +24,7 @@ namespace Exercise4
             {
                 if (myArray[i] == valueToIdentify) count++;
             }
+
             if (count>0) Console.WriteLine($"Value {valueToIdentify} appears {count} times!");
             else Console.WriteLine($"Value {valueToIdentify} is not here!");
             Console.ReadKey();
