@@ -16,8 +16,7 @@ namespace AsciiFigure
                 for (int j = 1; j <= classConstant-i; j++) line = line+ "\\\\\\\\";
                 Console.WriteLine(line);
             }
-            
-            
+                      
             Console.ReadKey();
         }
     }

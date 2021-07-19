@@ -14,8 +14,8 @@ namespace NumberSquare
                 minimum = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Max?");
                 maximum = Convert.ToInt32(Console.ReadLine());
-
             } while (minimum < 1 || maximum < 1 || minimum > maximum);
+
             string line = "";
             for (int i = 0; i <= maximum - minimum; i++)
             {

@@ -9,8 +9,7 @@ namespace Exercise2
             Console.WriteLine("Input number: ");
             int number = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Input power to put number in: ");
-            int power = Convert.ToInt32(Console.ReadLine());
-            
+            int power = Convert.ToInt32(Console.ReadLine());           
             Console.WriteLine(Pow(number,power));
             Console.ReadKey();
         }

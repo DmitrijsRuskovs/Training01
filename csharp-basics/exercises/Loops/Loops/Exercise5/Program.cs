@@ -11,12 +11,8 @@ namespace Exercise5
             Console.WriteLine("Enter the second word: ");
             string line2 = Console.ReadLine();
             Console.Write(line1);
-            for (int i = 0; i < 30-line1.Length-line2.Length; i++)
-            {
-                Console.Write(".");
-            }
+            for (int i = 0; i < 30-line1.Length-line2.Length; i++) Console.Write(".");
             Console.Write(line2);
-
             Console.ReadKey();
         }
     }
