@@ -8,20 +8,37 @@ namespace PrintDayInWord
         {
             int dayNumber = 1;
             if (dayNumber == 0)
+            {
                 Console.WriteLine($" {dayNumber} stands for Sunday");
+            }
             else if (dayNumber == 1)
+            {
                 Console.WriteLine($" {dayNumber} stands for Monday");
+            }
             else if (dayNumber == 2)
+            {
                 Console.WriteLine($" {dayNumber} stands for Tuesday");
+            }
             else if (dayNumber == 3)
+            {
                 Console.WriteLine($" {dayNumber} stands for Wednesday");
+            }
             else if (dayNumber == 4)
+            {
                 Console.WriteLine($" {dayNumber} stands for Thursday");
+            }
             else if (dayNumber == 5)
+            {
                 Console.WriteLine($" {dayNumber} stands for Friday");
+            }
             else if (dayNumber == 6)
+            {
                 Console.WriteLine($" {dayNumber} stands for Saturday");
-            else Console.WriteLine($" {dayNumber} is not a valid day");
+            }
+            else
+            {
+                Console.WriteLine($" {dayNumber} is not a valid day");
+            }
             
             switch (dayNumber)
             {

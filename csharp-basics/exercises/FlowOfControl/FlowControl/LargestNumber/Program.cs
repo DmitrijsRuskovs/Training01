@@ -18,8 +18,15 @@ namespace LargestNumber
             keyboard = Console.ReadLine();
             Int32.TryParse(keyboard, out input3);
             int largest = input1;
-            if (input2 > largest) largest = input2;
-            if (input3 > largest) largest = input3;
+            if (input2 > largest)
+            {
+                largest = input2;
+            }
+            if (input3 > largest)
+            {
+                largest = input3;
+            }
+
             Console.WriteLine($"The largest number is {largest}");
             Console.ReadKey();
         }

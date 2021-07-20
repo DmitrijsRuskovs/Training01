@@ -11,10 +11,20 @@ namespace Excercise5
             string resultLine = "";
             for (int i = 0; i < keyboard.Length; i++)
             {
-                if ((int)keyboard[i] > 64 && (int)keyboard[i] < 91) { 
-                   if (keyboard[i] == 'Z') resultLine += "9";
-                   else if ((int)keyboard[i] > 82) resultLine += (((int)keyboard[i] - 66) / 3 + 2).ToString();
-                   else resultLine += (((int)keyboard[i] - 65) / 3 + 2).ToString();
+                if ((int)keyboard[i] > 64 && (int)keyboard[i] < 91) 
+                {
+                    if (keyboard[i] == 'Z')
+                    {
+                        resultLine += "9";
+                    }
+                    else if ((int)keyboard[i] > 82)
+                    {
+                        resultLine += (((int)keyboard[i] - 66) / 3 + 2).ToString();
+                    }
+                    else
+                    {
+                        resultLine += (((int)keyboard[i] - 65) / 3 + 2).ToString();
+                    }
                 }
             }
 
