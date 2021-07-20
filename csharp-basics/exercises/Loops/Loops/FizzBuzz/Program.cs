@@ -20,14 +20,29 @@ namespace FizzBuzz
                 {
                     currentIndex++;
                     String currentLine = "";
-                    if (currentIndex > higherBound) break;
-                    if (currentIndex % 3 == 0) currentLine += "Fizz";
-                    if (currentIndex % 5 == 0) currentLine += "Buzz";                   
-                    if (currentLine.Length == 0) currentLine += currentIndex.ToString();
+                    if (currentIndex > higherBound)
+                    {
+                        break;
+                    }
+                    if (currentIndex % 3 == 0)
+                    {
+                        currentLine += "Fizz";
+                    }
+                    if (currentIndex % 5 == 0)
+                    {
+                        currentLine += "Buzz";
+                    }
+                    if (currentLine.Length == 0)
+                    {
+                        currentLine += currentIndex.ToString();
+                    }
+
                     numberSetLine += currentLine + " ";
                 }
+
                 Console.WriteLine(numberSetLine);
             }
+
             Console.ReadKey();
         }
     }

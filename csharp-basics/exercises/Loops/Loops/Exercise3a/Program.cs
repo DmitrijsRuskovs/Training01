@@ -14,7 +14,8 @@ namespace Exercise3
             int searchFor = Convert.ToInt16(Console.ReadLine());
             int index = -1;
             var foundIt = false;
-            for (int i = 0; i < integers.Length; i++) {
+            for (int i = 0; i < integers.Length; i++) 
+            {
                 if (integers[i] == searchFor)
                 {
                     foundIt = true;
@@ -23,8 +24,15 @@ namespace Exercise3
                 }
             }
 
-            if (foundIt) Console.WriteLine($"Found {searchFor} at index {index}");
-            else Console.WriteLine(searchFor + " is not in the array");
+            if (foundIt)
+            {
+                Console.WriteLine($"Found {searchFor} at index {index}");
+            }
+            else
+            {
+                Console.WriteLine(searchFor + " is not in the array");
+            }
+
             Console.ReadKey();
         }
 

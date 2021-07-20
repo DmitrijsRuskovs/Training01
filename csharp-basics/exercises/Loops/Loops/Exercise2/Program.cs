@@ -17,7 +17,11 @@ namespace Exercise2
         static int Pow(int number, int times)
         {
             int result = 1;
-            for (int i = 1; i<= times; i++) result *= number;           
+            for (int i = 1; i <= times; i++)
+            {
+                result *= number;
+            }
+
             return result;
         }
     }

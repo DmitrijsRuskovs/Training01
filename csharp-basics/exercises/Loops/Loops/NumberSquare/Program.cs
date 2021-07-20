@@ -19,7 +19,11 @@ namespace NumberSquare
             string line = "";
             for (int i = 0; i <= maximum - minimum; i++)
             {
-                for (int j = 0; j <= maximum - minimum; j++) Console.Write(minimum + (j + i) % (maximum - minimum + 1));
+                for (int j = 0; j <= maximum - minimum; j++)
+                {
+                    Console.Write(minimum + (j + i) % (maximum - minimum + 1));
+                }
+
                 Console.WriteLine();
             }
 
