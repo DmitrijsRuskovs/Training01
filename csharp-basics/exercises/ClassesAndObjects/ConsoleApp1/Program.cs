@@ -14,13 +14,19 @@ namespace ConsoleApp1
                 fuelGauge.Fill();
             }
 
-            Console.WriteLine($"fuel level:{fuelGauge.ReportLevel()}");
+            fuelGauge.ReportFuelLevel();
             var odometer = new Odometer(fuelGauge);
             Console.WriteLine("running...");
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 500; i++)
             {
-                odometer.Increment();
-                Console.WriteLine($"odometer report:{odometer.Report()} fuel report: {fuelGauge.ReportLevel()}");
+                odometer.IncreaseMileage();
+                odometer.ReportMileage();
+                fuelGauge.ReportFuelLevel(); 
+                if (fuelGauge.GetFuelLevel() == 0)
+                {
+                    Console.WriteLine("Ooops! Seems, we have run out of fuel...");
+                    break;
+                }
             }
             Console.ReadKey();
         }        
