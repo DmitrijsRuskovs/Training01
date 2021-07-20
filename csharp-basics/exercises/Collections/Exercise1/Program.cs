@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exercise1
 {
+    class Car
+    {
+        public string name;
+        public 
+    }
     class Program
     {
         /**
@@ -21,6 +26,7 @@ namespace Exercise1
         private static void Main(string[] args)
         {
             string[] array = { "Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Mercedes", "Tesla" };
+            
 
             //todo - replace array with an List and print out the results
 
