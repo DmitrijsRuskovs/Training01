@@ -16,7 +16,7 @@ namespace TicTacToe
             string messageToUser;
             do
             {
-                turnOfX = !turnOfX;
+                turnOfX = !turnOfX; //turnOfX - X puts; !turnOfX - O puts
                 do
                 {
                     messageToUser = "";
@@ -26,8 +26,15 @@ namespace TicTacToe
                     row = int.Parse(Console.ReadLine());
                     Console.WriteLine("Choose column (0,1,2): ");
                     column = int.Parse(Console.ReadLine());
-                    if (row > 2 || row < 0 || column > 2 || column < 0) messageToUser = "Please enter valid numbers 0,1,2";
-                    else if (board[row, column] != ' ') messageToUser = "This cell is already ocuupied. Please enter another cell!";
+                    if (row > 2 || row < 0 || column > 2 || column < 0)
+                    {
+                        messageToUser = "Please enter valid numbers 0,1,2";
+                    }
+                    else if (board[row, column] != ' ')
+                    {
+                        messageToUser = "This cell is already ocuupied. Please enter another cell!";
+                    }
+
                     Console.WriteLine(messageToUser);
                 } while (messageToUser != "");
 
@@ -40,8 +47,8 @@ namespace TicTacToe
                 if (turnOfX) messageToUser = "Wow! X has won!";
                 else messageToUser = "Foooooo! O has managed to do smth!";
             }
-
             else messageToUser = "Nobody has won";
+
             Console.WriteLine(messageToUser);
             Console.ReadKey();
         }
@@ -75,7 +82,11 @@ namespace TicTacToe
             {
                 for (var c = 0; c < 3; c++)
                 {
-                    if (board[r, c] == ' ') result = false;
+                    if (board[r, c] == ' ')
+                    {
+                        result = false;
+                        break;
+                    }
                 }
             }
 

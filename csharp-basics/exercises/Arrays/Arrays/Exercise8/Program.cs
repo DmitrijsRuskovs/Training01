@@ -25,9 +25,16 @@ namespace Exercise8
                 {
                     messageToUser = "";
                     Console.WriteLine($" {maximumNumberOfTries-_tryNumber+1} tries left. Guess the letter: ");               
-                    letter = Console.ReadLine().ToUpper();                   
-                    if ((int)letter[0]<65 || (int)letter[0] > 91) messageToUser = "Please enter a valid letter!";
-                    else if (Array.IndexOf(_guesses, letter[0])>0) messageToUser = "This letter has already been called. Please enter another one!";
+                    letter = Console.ReadLine().ToUpper();
+                    if ((int)letter[0] < 65 || (int)letter[0] > 91)
+                    {
+                        messageToUser = "Please enter a valid letter!";
+                    }
+                    else if (Array.IndexOf(_guesses, letter[0]) > 0)
+                    {
+                        messageToUser = "This letter has already been called. Please enter another one!";
+                    }
+
                     Console.WriteLine(messageToUser);
                 } while (messageToUser != "");
 
@@ -35,7 +42,10 @@ namespace Exercise8
                 DisplayWord();
             } while (!HaveWon() && _tryNumber < maximumNumberOfTries);
 
-            if (HaveWon()) messageToUser = "You have guessed the word!";
+            if (HaveWon())
+            {
+                messageToUser = "You have guessed the word!";
+            }
             else messageToUser = "You have lost! It was " + _chosenWord;
             Console.WriteLine(messageToUser);
             Console.ReadKey();
