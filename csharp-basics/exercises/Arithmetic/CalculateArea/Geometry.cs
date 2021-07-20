@@ -19,9 +19,8 @@ namespace CalculateArea
 
         public static double areaOfTriangle(decimal ground, decimal h)
         {
-            if (ground<=0 || h <=0) throw new NotImplementedException("Error! Enter positive arguments!");
-            else return (double)ground * (double)h / 2;
-            
+            if (ground <= 0 || h <= 0) throw new NotImplementedException("Error! Enter positive arguments!");
+            else return (double)ground * (double)h / 2;          
         }
     }
 }

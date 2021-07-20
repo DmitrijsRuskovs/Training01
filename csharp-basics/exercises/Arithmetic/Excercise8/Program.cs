@@ -13,7 +13,9 @@ namespace Excercise8
             Console.WriteLine("| Employee | Base Pay | Hours Worked | Salary | Instructions |");
             for (int i = 0; i < companyFoo.Length; i++)
             {
-                Console.WriteLine($"| {companyFoo[i].name} | { companyFoo[i].salaryPerHour.ToString("0.00")} | { companyFoo[i].hoursWorked.ToString("0.00")} | { companyFoo[i].salary.ToString("0.00")} | { companyFoo[i].salaryMessage} |");
+                Console.WriteLine($"| {companyFoo[i].name} | { companyFoo[i].salaryPerHour.ToString("0.00")} " +
+                    $"| { companyFoo[i].hoursWorked.ToString("0.00")} | { companyFoo[i].salary.ToString("0.00")} " +
+                    $"| { companyFoo[i].salaryMessage} |");
             }
 
             Console.ReadKey();            
