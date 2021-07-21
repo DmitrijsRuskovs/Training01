@@ -33,8 +33,9 @@ namespace Exercise7
 
             if (doggies[7].HasSameMotherAs(doggies[1]))
             {
-                Console.WriteLine($" {doggies[7].name} has the same mother as {doggies[1].name}. Their mother called {doggies[1].GetMotherName()}. So technically they are brothers if they would care about this.");
+                Console.WriteLine($" {doggies[7].name} has the same mother as {doggies[1].name}. Its mother's called {doggies[1].GetMotherName()}. So technically they are brothers if they would care about this.");
             }
+
             Console.ReadKey();            
         }
     }
