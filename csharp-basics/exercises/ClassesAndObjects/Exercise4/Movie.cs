@@ -33,7 +33,5 @@ namespace Exercise4
             }
             return result;
         }
-    }
-
-    
+    }   
 }

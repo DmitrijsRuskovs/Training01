@@ -9,10 +9,12 @@ namespace Exercise4
             Movie[] movies = { new Movie("Casino Royale", "Eon Productions", "PG­13"), new Movie("Glass", "Buena Vista International", "PG­13"), 
                 new Movie("Spider - Man: Into the Spider - Verse", "Columbia Pictures", "PG") };
             movies = Movie.GetPG(movies);
-            foreach (Movie i in movies) Console.WriteLine(i.name+" has a rating of PG");
+            foreach (Movie i in movies)
+            {
+                Console.WriteLine(i.name + " has a rating of PG");
+            }
+
             Console.ReadKey();
         }
-    }
-
-    
+    }   
 }
