@@ -1,15 +1,16 @@
-﻿public class Employee
+﻿using System;
+public class Employee
 {   
     public string name;
-    public double salaryPerHour;
-    public double hoursWorked;
-    public double salary;
-    public string salaryMessage;
-    public Employee (string _name, double _salaryPerHour, double _hoursWorked)
+    private double salaryPerHour;
+    private double hoursWorked;
+    private double salary;
+    private string salaryMessage;
+    public Employee (string name, double salaryPerHour, double hoursWorked)
     {
-        this.name = _name;
-        this.salaryPerHour = _salaryPerHour;
-        this.hoursWorked = _hoursWorked;
+        this.name = name;
+        this.salaryPerHour = salaryPerHour;
+        this.hoursWorked = hoursWorked;
         this.salaryMessage = "To be paid in standard order";
         if (this.hoursWorked > 60)
         {
@@ -28,5 +29,11 @@
         {
             this.salary = (1.5 * this.hoursWorked - 20) * this.salaryPerHour;
         }
+    }
+
+    public void Report()
+    {
+        Console.WriteLine($"| {this.name} | { this.salaryPerHour.ToString("0.00")} | { this.hoursWorked.ToString("0.00")} " +
+            $"| {this.salary.ToString("0.00")} | { this.salaryMessage} |");
     }
 }
