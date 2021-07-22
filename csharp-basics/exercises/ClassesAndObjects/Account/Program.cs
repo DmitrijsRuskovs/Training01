@@ -12,7 +12,7 @@ namespace Account
         {
             var aAccount = new Account("A account", 100.00);
             var bAccount = new Account("B account",0);
-            var cAccount = new Account("C Account", 0);
+            var cAccount = new Account("C account", 0);
             Console.WriteLine("Initial state");
             Console.WriteLine(aAccount);
             Console.WriteLine(bAccount);
