@@ -22,9 +22,13 @@ namespace ListExercise3
             Console.WriteLine(string.Join(",", colors));
 
             //TODO: Add new color at the first and third position of the list
+            colors.Insert(0,"color after vanish Oxy action");
+            colors.Insert(2,"Spectral Gloria color");
 
             //Print the list
             Console.WriteLine(string.Join(",", colors));
+
+            Console.ReadKey();
         }
     }
 }
