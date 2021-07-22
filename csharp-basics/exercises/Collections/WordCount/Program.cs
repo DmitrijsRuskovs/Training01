@@ -10,31 +10,40 @@ namespace WordCount
     {
         static void Main(string[] args)
         {           
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\albin\source\repos\Training01\csharp-basics\exercises\Collections\WordCount\lear.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader(@"..\..\lear.txt");
             
             int lines = 0;
             int words = 0;
+            int wholeWords = 0;
             int characters = 0;
+            int totalCharacters = 0;
             string text = "";
             while ((text = file.ReadLine()) != null)
             {
                 lines++;
                 words++;
+                totalCharacters += text.Length;
                 for (int i = 0; i < text.Length; i++)
-                {
-                    if (text[i] == ' '|| text[i] == (char)39)
+                {                  
+                    if (text[i] == ' ')
+                    {
+                        words++;
+                        wholeWords++;
+                    }
+                    
+                    else if (text[i] == (char)39)
                     {
                         words++;
                     }
-                    
-                    if (Char.IsLetterOrDigit(text[i]))
+
+                    else if (Char.IsLetterOrDigit(text[i]))
                     {
                         characters++;
                     }
                 }
             }
 
-            Console.WriteLine($"Lines = {lines}; Words: {words}; Chars: {characters}");
+            Console.WriteLine($"Lines = {lines};\nWords: {words};\nWords without apostrophs: {wholeWords};\nWord Characters: {characters};\nTotal Characters: {totalCharacters}");
             Console.ReadKey();
         }
     }
