@@ -12,7 +12,7 @@ namespace Excercise5
             
             for (int i = 0; i < classes.Length; i++)
             {
-                String line = "";
+                string line = "";
                 line = String.Join(line,"| ",(i+1).ToString()," |");
                 for(int j = 0; j < 38-classes[i].Length; j++) line += " ";
                 line += classes[i]+"|";
