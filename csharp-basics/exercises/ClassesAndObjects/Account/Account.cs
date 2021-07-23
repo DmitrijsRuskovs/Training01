@@ -11,13 +11,13 @@
             _money = money;
         }
 
-        public double withdrawal(double i)
+        public double Withdrawal(double i)
         {
             _money -= i;
             return i;
         }
 
-        public void deposit(double deposit)
+        public void Deposit(double deposit)
         {
             _money += deposit;
         }
