@@ -16,11 +16,10 @@ namespace FlightPlanner
 
         private static void DisplayFirst()
         {
-            Console.WriteLine("\n..............................................."); 
+            Console.WriteLine("\n\n..............................................."); 
             Console.WriteLine(". Choose Your action:                         .");
             Console.WriteLine(". 1 - View all list of departures -> arrivals .");
             Console.WriteLine(". 2 - Start Your trip: choose departure city  .");
-            //Console.WriteLine("3 - Continue Your trip: choose departure city");
             Console.WriteLine(". SPACE - Exit                                .");
             Console.WriteLine("...............................................");
         }
@@ -70,6 +69,7 @@ namespace FlightPlanner
         private static void DisplaytDepartureCities()
         {
             int index = 0;
+            Console.Clear();
             Console.WriteLine($"\n\nChoose Your departure city:");
             Console.WriteLine("-----------------------------");
             foreach (KeyValuePair<string, List<string>> i in flights)
@@ -90,6 +90,7 @@ namespace FlightPlanner
             while (key != ' '&&!arrivedHomeAfterTrip)
             {
                 int chosenIndex = Convert.ToInt32(key) - 48; //Index 0 - 9 from pressed key
+                Console.Clear();
                 if (chosenIndex>=0 && chosenIndex<=9)
                 {
                     if (trip.Count == 0)
