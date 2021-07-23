@@ -22,6 +22,7 @@ namespace LargestNumber
             {
                 largest = input2;
             }
+
             if (input3 > largest)
             {
                 largest = input3;
