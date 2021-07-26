@@ -1,25 +1,23 @@
-﻿namespace Account
+﻿namespace BankAccount
 {
     class Account
     {
         private string _name;
         private double _money;
 
-        public Account(string name, double money)
+        public Account(string v1, double v2)
         {
-            _name = name;
-            _money = money;
+            
         }
 
-        public double Withdrawal(double i)
+        public double withdrawal(double i)
         {
-            _money -= i;
             return i;
         }
 
-        public void Deposit(double deposit)
+        public void deposit(double i)
         {
-            _money += deposit;
+            
         }
 
         public double balance()
@@ -29,7 +27,7 @@
 
         public override string ToString()
         {
-            return $"Account: {_name}; Balance: {_money} EUR";
+            return $"{_name}: {_money}";
         }
 
         public string Name
