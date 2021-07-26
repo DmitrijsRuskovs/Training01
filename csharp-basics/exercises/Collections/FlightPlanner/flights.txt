@@ -1,14 +1,61 @@
-San Jose -> San Francisco
-San Jose -> Anchorage
-New York -> Anchorage
-New York -> San Jose
-New York -> San Francisco
-New York -> Honolulu
-Anchorage -> New York
-Anchorage -> San Jose
-Honolulu -> New York
-Honolulu -> San Francisco
-Denver -> San Jose
-San Francisco -> New York
-San Francisco -> Honolulu
-San Francisco -> Denver
+Jekabpils -> Olaine
+Jekabpils -> Lielplatone
+Daugavpils -> Lielplatone
+Daugavpils -> Jekabpils
+Daugavpils -> Olaine
+Daugavpils -> Tukums
+Lielplatone -> Daugavpils
+Lielplatone -> Jekabpils
+Tukums -> Daugavpils
+Tukums -> Olaine
+Bauska -> Jekabpils
+Olaine -> Daugavpils
+Olaine -> Tukums
+Olaine -> Bauska
+Bauska -> Zelta Dibens
+Tukums -> Zelta Dibens
+Zelta Dibens -> Lielie Mulki
+Zelta Dibens -> Bauska
+Kuja -> Daugavpils
+Kuja -> Penkule
+Penkule -> Kuja
+Olaine -> Kuja
+Bauska -> Kuja
+Penkule -> Bauska
+Penkule -> Daugavpils
+Penkule -> Jekabpils
+Penkule -> Lielplatone
+Penkule -> Zelta Dibens
+Penkule -> Lielie Mulki
+Kuja -> Lielplatone
+Daugavpils -> Penkule
+Bauska -> Penkule
+Zelta Dibens -> Penkule
+Lielie Mulki -> Penkule
+Lielie Mulki -> Kuja
+Lielie Mulki -> Zelta Dibens
+Pluras -> Zelta Dibens
+Pluras -> Jekabpils
+Dzerumi -> Lielie Mulki
+Dzerumi -> Zelta Dibens
+Malinovka -> Kuja
+Malinovka -> Lielie Mulki
+Malinovka -> Olaine
+Malinovka -> Bauska
+Malinovka -> Jekabpils
+Zelta Dibens -> Pluras
+Tukums -> Pluras
+Zelta Dibens -> Dzerumi
+Lielie Mulki -> Dzerumi
+Bauska -> Dzerumi
+Kuja -> Malinovka
+Lielie Mulki -> Malinovka
+Olaine -> Malinovka
+Bauska -> Malinovka
+Jekabpils -> Malinovka
+Naudas kalns -> Malinovka
+Naudas kalns -> Daugavpils
+Naudas kalns -> Penkule
+Daugavpils -> Naudas kalns
+Penkule -> Naudas kalns
+Tukums -> Naudas kalns

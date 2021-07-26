@@ -24,9 +24,10 @@ namespace ListExercise10
 
             //TODO: Remove all elements from list
             //...
-
+            colors.Clear();
             Console.WriteLine("New array list: ");
             Console.WriteLine(string.Join(",", colors));
+            Console.ReadKey();
         }
     }
 }

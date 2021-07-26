@@ -16,21 +16,23 @@ namespace Exercise2
             mySet.Add("Red");
             mySet.Add("Black");
             mySet.Add("Yellow");
+            mySet.Add("new one");
+            mySet.Add("new new one");
             //..
 
             Console.WriteLine("Should have 5 elements: ");
             Console.WriteLine(string.Join(",", mySet)); //Pay attention on order!
 
             //TODO: iterate through all elements in set
-            /*
-            for (...) 
+            
+            for (int i=0;i<mySet.Count;i++) 
             {
-                Console.WriteLine(element);
+                Console.WriteLine(mySet.ElementAt(i));
             }
-            */
-
+            
             //TODO: remove all values from set
             Console.WriteLine("Is mySet empty: ");
+            mySet.Clear();
             Console.WriteLine(mySet.Count == 0);
 
             //TODO: check if it is possible to add duplicated values
@@ -40,6 +42,7 @@ namespace Exercise2
             mySet.Add("Purple");
 
             Console.WriteLine(string.Join(",", mySet));
+            Console.ReadKey();
         }
     }
 }

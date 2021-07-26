@@ -202,7 +202,8 @@ The questions in this exercise all deal with a class Dog that you have to progra
   - Change the dog class to include a method fathersName that return the name of the father.
   If the father reference is null, return "Unknown". Test in the DogTest main method that it works. 
     - referenceToCoco.FathersName() returns the string "Buster"
-    - referenceToSparky.FathersName() returns the string "Unknown"
+    - referenceToSparky.FathersName() returns the string 
+	"Unknown"
   - Change the dog class to include a method boolean HasSameMotherAs(Dog otherDog).
  The method should return true on the call
     - referenceToCoco.HasSameMotherAs(referenceToRocky). 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,13 @@ namespace ListExercise4
                 "White",
                 "Black"
             };
+
+            colors.Add("Twice orange tham usual orange");
+            string element = colors.ElementAt(0);
+            Console.WriteLine("First element: " + element);
+            element = colors.ElementAt(2);
+            Console.WriteLine("Third element: " + element);
+            Console.ReadKey();
 
             //fixme
             //string element = ...;
