@@ -11,7 +11,6 @@ namespace Excercise8
             long residualMinutes = totalMinutes % 60;
             long hours = (long)Math.Floor((decimal)totalMinutes / 60) % 24;
             long days = (long)Math.Floor((decimal)totalMinutes / 60 / 24);         
-
             Console.WriteLine(totalMinutes.ToString() + " minutes comprises:");
             Console.WriteLine(days.ToString() + " full days;");
             Console.WriteLine(hours.ToString() + " full hours;");
