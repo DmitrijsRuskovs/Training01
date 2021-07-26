@@ -11,30 +11,35 @@ namespace Exercise3
             Console.Write("There are few integers given: ");
             Console.WriteLine("[{0}]", string.Join(", ", integers));
             Console.WriteLine("Which number index would you like to find?");
-
             int searchFor = Convert.ToInt16(Console.ReadLine());
-            
-
-            int i;
+            int index = -1;
             var foundIt = false;
-
-            for (i = 0; i < integers.Length; i++) {
-                //todo - search for integer - break when you have found what you searched for
+            for (int i = 0; i < integers.Length; i++) 
+            {
+                if (integers[i] == searchFor)
+                {
+                    foundIt = true;
+                    index = i;
+                    break;
+                }
             }
 
-            if (foundIt) {
-                Console.WriteLine("Found " + searchFor + " at index " + i);
-            } else {
+            if (foundIt)
+            {
+                Console.WriteLine($"Found {searchFor} at index {index}");
+            }
+            else
+            {
                 Console.WriteLine(searchFor + " is not in the array");
             }
+
+            Console.ReadKey();
         }
 
         static int[] RandomIntegers(int n)
         {
             var list = new List<int>();
             var random = new Random();
-
-
             for (var i = 0; i < n; i++)
             {
                 var randomNumber = random.Next(0, 99);

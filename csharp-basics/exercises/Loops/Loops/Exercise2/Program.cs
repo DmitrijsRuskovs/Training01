@@ -6,32 +6,23 @@ namespace Exercise2
     {
         static void Main(string[] args)
         {
-            int i, n;
-            
-            Console.WriteLine("Input number of terms : ");
-
-            n = Convert.ToInt32(Console.ReadLine());
-            /*
-            todo - complete loop to multiply i with itself n times, it is NOT allowed to use Math.Pow()
-            */
-            for (i = 0; i < n; i++)
-            {
-                Console.WriteLine(Pow(i,n));
-            }
-
+            Console.WriteLine("Input number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input power to put number in: ");
+            int power = Convert.ToInt32(Console.ReadLine());           
+            Console.WriteLine(Pow(number,power));
             Console.ReadKey();
-
         }
 
         static int Pow(int number, int times)
         {
-            var a = number;
-            for (var i = times; i > 1; i--)
+            int result = 1;
+            for (int i = 1; i <= times; i++)
             {
-                a *= number;
+                result *= number;
             }
 
-            return a;
+            return result;
         }
     }
 }
