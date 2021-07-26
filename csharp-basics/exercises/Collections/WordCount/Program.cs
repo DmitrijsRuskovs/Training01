@@ -29,13 +29,11 @@ namespace WordCount
                     {
                         words++;
                         wholeWords++;
-                    }
-                    
+                    }                    
                     else if (text[i] == (char)39)
                     {
                         words++;
                     }
-
                     else if (Char.IsLetterOrDigit(text[i]))
                     {
                         characters++;

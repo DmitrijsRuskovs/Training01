@@ -24,21 +24,19 @@ namespace ListExercise11
             elements.Add("10th");
             elements.Add("11th");
             elements.Add("12th");
-
-            //TODO: Add new value at 5th position
             elements[4] = "another value at 5th position";
-
-            //TODO: Change value at last position (Calculate last position programmatically)
             elements[elements.Count-1] = "another value at last position";
-
-            //TODO: Sort your list in alphabetical order
             elements.Sort();
 
-            //TODO: Check if your list contains "Foobar" element
-            if (elements.Contains("Foobar")) Console.WriteLine("Foobar is here!");
-            else Console.WriteLine("No time for Foobars!");
+            if (elements.Contains("Foobar"))
+            {
+                Console.WriteLine("Foobar is here!");
+            }
+            else
+            {
+                Console.WriteLine("No time for Foobars!");
+            }
 
-            //TODO: Print each element of list using loop
             foreach (var i in elements)
             {
                 Console.Write(i+", ");

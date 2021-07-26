@@ -121,6 +121,7 @@ namespace FlightPlanner
                     {
                         DisplaytArrivalCities(flights[lastVisitedCity]);
                     }
+
                     key = Console.ReadKey().KeyChar;
                 }
             }
@@ -157,8 +158,7 @@ namespace FlightPlanner
                 {
                     DisplayAllDestinations();  
                 }
-
-                if (key == '2')
+                else if (key == '2')
                 {
                     StartPlanningFlight();
                 }

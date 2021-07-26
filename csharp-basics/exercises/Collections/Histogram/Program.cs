@@ -14,7 +14,6 @@ namespace Histogram
         private static void Main(string[] args)
         {
             var readText = File.ReadAllText(Path).Split(' ').ToList();
-            //var logList = new List<string>(readText);
             string[] histogram = new string[11];
             foreach (var s in readText)
             {
