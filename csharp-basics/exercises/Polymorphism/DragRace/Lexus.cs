@@ -2,10 +2,8 @@ using System;
 
 namespace DragRace
 {
-    public class Lexus : Car, INitroCar
+    public class Lexus : Car
     {
-        //private string _name = "";
-
         public Lexus(string name)
         {
             this._name = name;

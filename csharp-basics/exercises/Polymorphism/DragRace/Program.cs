@@ -13,8 +13,7 @@ namespace DragRace
             for (int i = 1; i <= 10; i++) 
             {
                 foreach (var car in cars)
-                {
-                    car.StartEngine();
+                {                   
                     car.SpeedUp();
                     if (i % 3 == 2)
                     {
@@ -28,7 +27,7 @@ namespace DragRace
             string maxSpeedCarName = "";
             foreach (var car in cars) 
             {
-                Console.WriteLine(car.GetName() + " speed is:" + car.ShowCurrentSpeed());
+                Console.WriteLine(car.GetName() + " speed is: " + car.ShowCurrentSpeed()+" km/h");
                 if (car.GetSpeed()>maxSpeed)
                 {
                     maxSpeed = car.GetSpeed();
