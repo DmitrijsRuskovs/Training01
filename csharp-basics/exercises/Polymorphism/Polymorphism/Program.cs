@@ -1,12 +1,13 @@
 ﻿using System;
 
-namespace Polymorphism
+namespace Exercise5
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Advertisments");
+            Console.ReadKey();
         }
     }
 }

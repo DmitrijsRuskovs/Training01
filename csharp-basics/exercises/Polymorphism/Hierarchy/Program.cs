@@ -11,7 +11,7 @@ namespace Hierarchy
             List < Animal > animals = new List<Animal>();
             while (true) 
             {
-                Console.WriteLine("n\\Enter animal's parameters: ");
+                Console.WriteLine('\n'+"Enter animal's parameters: ");
                 string[] parameters = Console.ReadLine().Split(' ');
                 if (parameters[0] == "End") 
                 {
