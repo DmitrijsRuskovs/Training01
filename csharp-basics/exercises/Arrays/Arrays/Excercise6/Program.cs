@@ -34,7 +34,7 @@ namespace ArrayX6
                 result += $"{myArray[i]} ";
             }
 
-            result+='\n'+$"Array2 is: ");
+            result+='\n'+$"Array2 is: ";
             for (int i = 0; i < arraySize; i++)
             {
                 result += $"{Array2[i]} ";
