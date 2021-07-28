@@ -26,25 +26,21 @@ namespace ArrayX6
             myArray[arraySize - 1] = -7;
         }
 
-        public void DisplayArrays()
+        public string DisplayArrays()
         {
-
-            Console.WriteLine();
-            Console.Write($"Array1 is: ");
+            string result= '\n' + $"Array1 is: ";
             for (int i = 0; i < arraySize; i++)
             {
-                Console.Write($"{myArray[i]} ");
+                result += $"{myArray[i]} ";
             }
 
-            Console.WriteLine();
-            Console.Write($"Array2 is: ");
+            result+='\n'+$"Array2 is: ");
             for (int i = 0; i < arraySize; i++)
             {
-                Console.Write($"{Array2[i]} ");
+                result += $"{Array2[i]} ";
             }
 
-            Console.WriteLine();
-            Console.ReadKey();
+            return result;
         }
     }
 
@@ -54,7 +50,8 @@ namespace ArrayX6
         {
             ArrayReorganization test = new ArrayReorganization();          
             test.AssembleArrays();
-            test.DisplayArrays();
+            Console.WriteLine(test.DisplayArrays());
+            Console.ReadKey();
         }
     }
 }
