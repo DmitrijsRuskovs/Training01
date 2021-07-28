@@ -5,8 +5,8 @@
         private double _totalSales = 0;
         private double _conversionRate = 0;
 
-        public Commission(string eName, string eAddress, string ePhone, string socSecNumber, double rate, double ConversionRate) : base(eName,
-            eAddress, ePhone, socSecNumber, rate) 
+        public Commission(string eName, string eAddress, string ePhone, string socSecNumber, double rate, double ConversionRate) 
+            : base(eName, eAddress, ePhone, socSecNumber, rate) 
         {
             _conversionRate = ConversionRate;
         }

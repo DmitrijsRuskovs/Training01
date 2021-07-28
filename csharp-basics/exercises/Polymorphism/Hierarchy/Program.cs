@@ -42,20 +42,19 @@ namespace Hierarchy
                     Meat food = new Meat(int.Parse(foodParameters[1]));
                     animals[animals.Count - 1].Eat(food,food.GetQuantity());
                 }
-                else if (foodParameters[0] == "Vegetable") {
+                else if (foodParameters[0] == "Vegetable") 
+                {
                     Vegetable food = new Vegetable(int.Parse(foodParameters[1]));
                     animals[animals.Count - 1].Eat(food, food.GetQuantity());
                 }
 
                 animals[animals.Count - 1].DisplayInfo();
-
             }
 
             foreach (Animal animal in animals) 
             {
                 animal.DisplayInfo();
             }
-
         }
     }
 }

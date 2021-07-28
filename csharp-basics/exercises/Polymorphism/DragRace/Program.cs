@@ -20,7 +20,6 @@ namespace DragRace
                         car.UseNitrousOxideEngine();
                     }
                 }
-
             }
 
             int maxSpeed = 0;
