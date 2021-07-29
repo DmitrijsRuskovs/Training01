@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckOddEven.Test", "CheckO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaLozaWoza.Test", "CozaLozaWoza.Test\CozaLozaWoza.Test.csproj", "{825B30AA-FEE5-430D-BFAB-D05634D8DBBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravityCalculator.Test", "GravityCalculator.Test\GravityCalculator.Test.csproj", "{EF1957BD-226D-4F68-8E0D-3A1C55E123E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{825B30AA-FEE5-430D-BFAB-D05634D8DBBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{825B30AA-FEE5-430D-BFAB-D05634D8DBBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{825B30AA-FEE5-430D-BFAB-D05634D8DBBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1957BD-226D-4F68-8E0D-3A1C55E123E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1957BD-226D-4F68-8E0D-3A1C55E123E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1957BD-226D-4F68-8E0D-3A1C55E123E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1957BD-226D-4F68-8E0D-3A1C55E123E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
