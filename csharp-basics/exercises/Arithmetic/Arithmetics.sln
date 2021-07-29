@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise9", "Excercise9\Exe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1.Test", "Exercise1.Test\Exercise1.Test.csproj", "{109CCC9D-C63A-4D84-9A35-6D6CA8526359}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckOddEven.Test", "CheckOddEven.Test\CheckOddEven.Test.csproj", "{38F76926-916B-4199-9215-85EC52851A90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{109CCC9D-C63A-4D84-9A35-6D6CA8526359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{109CCC9D-C63A-4D84-9A35-6D6CA8526359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{109CCC9D-C63A-4D84-9A35-6D6CA8526359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F76926-916B-4199-9215-85EC52851A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F76926-916B-4199-9215-85EC52851A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F76926-916B-4199-9215-85EC52851A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F76926-916B-4199-9215-85EC52851A90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
