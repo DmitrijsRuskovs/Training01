@@ -7,21 +7,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateArea", "CalculateA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravityCalculator", "GravityCalculator\GravityCalculator.csproj", "{21B4C2ED-21D7-4F86-9A72-FCAD10DE578E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Excercise1", "Excercise1\Excercise1.csproj", "{25D3904C-0F6F-4551-94D6-9482B614BC82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise1", "Excercise1\Exercise1.csproj", "{25D3904C-0F6F-4551-94D6-9482B614BC82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckOddEven", "Excercise2\CheckOddEven.csproj", "{C1281E28-63A5-4E23-838F-1F8079801D7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckOddEven", "Excercise2\CheckOddEven.csproj", "{C1281E28-63A5-4E23-838F-1F8079801D7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumAverageRunningInt", "SumAverageRunningInt1\SumAverageRunningInt.csproj", "{3234574B-3CB2-437F-A9FB-65B41499F70B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumAverageRunningInt", "SumAverageRunningInt1\SumAverageRunningInt.csproj", "{3234574B-3CB2-437F-A9FB-65B41499F70B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product1ToN", "Product1ToN\Product1ToN.csproj", "{65A8B0A1-0F69-4223-BCC6-DDA6A39499B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product1ToN", "Product1ToN\Product1ToN.csproj", "{65A8B0A1-0F69-4223-BCC6-DDA6A39499B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excercise5", "Excercise5\Excercise5.csproj", "{5271A37A-5A2F-4A89-B021-7EAD6EEB73F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise5", "Excercise5\Exercise5.csproj", "{5271A37A-5A2F-4A89-B021-7EAD6EEB73F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaLozaWoza", "CozaLozaWoza\CozaLozaWoza.csproj", "{B6DBAAEA-7F05-4D01-8135-5398A0E17B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CozaLozaWoza", "CozaLozaWoza\CozaLozaWoza.csproj", "{B6DBAAEA-7F05-4D01-8135-5398A0E17B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excercise8", "Excercise8\Excercise8.csproj", "{18D6D519-7237-4EA1-BA6D-B9402B5444F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise8", "Excercise8\Exercise8.csproj", "{18D6D519-7237-4EA1-BA6D-B9402B5444F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excercise9", "Excercise9\Excercise9.csproj", "{6B64B08F-6BAE-4E2C-8D09-E93FB82D8DAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise9", "Excercise9\Exercise9.csproj", "{6B64B08F-6BAE-4E2C-8D09-E93FB82D8DAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1.Test", "Exercise1.Test\Exercise1.Test.csproj", "{109CCC9D-C63A-4D84-9A35-6D6CA8526359}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{6B64B08F-6BAE-4E2C-8D09-E93FB82D8DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B64B08F-6BAE-4E2C-8D09-E93FB82D8DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B64B08F-6BAE-4E2C-8D09-E93FB82D8DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{109CCC9D-C63A-4D84-9A35-6D6CA8526359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{109CCC9D-C63A-4D84-9A35-6D6CA8526359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{109CCC9D-C63A-4D84-9A35-6D6CA8526359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{109CCC9D-C63A-4D84-9A35-6D6CA8526359}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
