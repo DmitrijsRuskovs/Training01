@@ -10,6 +10,7 @@ namespace Exercise1.Test
         public void Setup()
         {                      
         }
+
         [Test]
         public void Product_CheckSetMethodst()
         {
