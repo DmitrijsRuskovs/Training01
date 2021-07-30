@@ -18,14 +18,36 @@ namespace Exercise1
         {
             this._amount = quantity;
         }
+
+        public int GetQuantity()
+        {
+            return this._amount;
+        }
+
+        public string GetName()
+        {
+            return this._name;
+        }
+
         public void SetPrice(double price)
         {
             this._price = price;
         }
 
-        public void PrintProduct()
+        public double GetPrice()
         {
-            Console.WriteLine($"{this._name}, price: {this._price} EUR, amount: {this._amount} units");
+            return this._price;
+        }
+
+        public double GetWholeStockPrice()
+        {
+            return this._price* this._amount;
+        }
+
+
+        public string PrintProduct()
+        {
+            return $"{this._name}, price: {this._price} EUR, amount: {this._amount} units";
         }
     }
 }
