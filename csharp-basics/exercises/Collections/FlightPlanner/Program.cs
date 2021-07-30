@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 namespace FlightPlanner
 {
     class Program
-    {
-        private static Dictionary<string, List<string>> flights = new Dictionary<string, List<string>>();
-        private static List<string> trip = new List<string>();
-        private const string Path = "../FlightPlanner/flights.txt";
+    {      
+        private static List<string> _trip = new List<string>();
+        private static FlightList _flightList = new FlightList();
 
-        private static void DisplayFirst()
+        private static void DisplayFirstMenu()
         {
             Console.WriteLine("\n\n..............................................."); 
             Console.WriteLine(". Choose Your action:                         .");
@@ -27,39 +26,46 @@ namespace FlightPlanner
         private static void DisplayAllDestinations()
         {
             Console.WriteLine("-------------------------------------");
-            foreach (KeyValuePair<string, List<string>> i in flights)
+            foreach (var departureCity in _flightList.GetDepartureCities())
             {
-                Console.WriteLine($"DEPARTURE from {i.Key}:");
-                foreach (var j in i.Value)
+                Console.WriteLine($"DEPARTURE from {departureCity}:");
+                int index = 0;
+                foreach (var arrivalCity in _flightList.GetArrivalCities(departureCity))
                 {
-                    Console.WriteLine($"   {i.Value.IndexOf(j)} {j}");
+                    Console.WriteLine($"   {index++} {arrivalCity}");
                 }
             }
 
             Console.WriteLine("-------------------------------------");
         }
 
+        public static string CurrentTrip()
+        {
+            string result = "";
+            foreach (var i in _trip)
+            {
+                result += i + " -> ";
+            }
+            return result;
+        }
+
         private static void DisplayCurrentTrip()
         {
-            if (trip.Count > 0)
+            if (_trip.Count > 0)
             {
                 Console.Write("\n\nTRIP:    ");
-                foreach (var i in trip)
-                {
-                    Console.Write(i + " -> ");
-                }
+                Console.Write(CurrentTrip());
             }
         }
 
-        private static void DisplaytArrivalCities(List<string> cityList)
+        private static void DisplaytArrivalCities(string DepartureCity)
         {
             int index = 0;
             Console.WriteLine($"\n\nChoose Your arrival city:");
             Console.WriteLine("-----------------------------");
-            foreach (var i in cityList)
+            foreach (var arrivalCity in _flightList.GetArrivalCities(DepartureCity))
             {
-                index = cityList.ToList().IndexOf(i);
-                Console.WriteLine($"{index} -  {i}");
+                Console.WriteLine($"{index++} -  {arrivalCity}");              
             }
 
             Console.WriteLine("-----------------------------");
@@ -72,10 +78,9 @@ namespace FlightPlanner
             Console.Clear();
             Console.WriteLine($"\n\nChoose Your departure city:");
             Console.WriteLine("-----------------------------");
-            foreach (KeyValuePair<string, List<string>> i in flights)
+            foreach (var departureCity in _flightList.GetDepartureCities())
             {
-                index = flights.Keys.ToList().IndexOf(i.Key);
-                Console.WriteLine($"{index} -  {i.Key}");
+                Console.WriteLine($"{index++} -  {departureCity}");
             }
 
             Console.WriteLine("-----------------------------");
@@ -93,33 +98,33 @@ namespace FlightPlanner
                 Console.Clear();
                 if (chosenIndex>=0 && chosenIndex<=9)
                 {
-                    if (trip.Count == 0)
+                    if (_trip.Count == 0)
                     {
-                        lastVisitedCity = flights.ElementAt(chosenIndex).Key;                      
+                        lastVisitedCity = _flightList.GetDepartureCityByIndex(chosenIndex);                   
                     }
                     else
                     {
-                        lastVisitedCity = flights[lastVisitedCity].ElementAt(chosenIndex);
-                        if (trip.ElementAt(0) == lastVisitedCity)
+                        lastVisitedCity = _flightList.GetArrivalCityByIndex(chosenIndex, lastVisitedCity);
+                        if (_trip.ElementAt(0) == lastVisitedCity)
                         {
                             arrivedHomeAfterTrip = true;
                             Console.WriteLine("\n\n HOME, SWEET HOME!!!!!");
                         }
                     }
                     
-                    trip.Add(lastVisitedCity);
+                    _trip.Add(lastVisitedCity);
                 }
 
                 DisplayCurrentTrip();
                 if (!arrivedHomeAfterTrip)
                 {
-                    if (trip.Count == 0)
+                    if (_trip.Count == 0)
                     {
                         DisplaytDepartureCities();
                     }
                     else
                     {
-                        DisplaytArrivalCities(flights[lastVisitedCity]);
+                        DisplaytArrivalCities(lastVisitedCity);
                     }
 
                     key = Console.ReadKey().KeyChar;
@@ -131,28 +136,15 @@ namespace FlightPlanner
         private static void Main(string[] args)
         {
             var readText = File.ReadAllLines(@"..\..\flights.txt");
-            
             foreach (var s in readText)
             {
-                int arrow = s.IndexOf('>');
-                string departure = s.Substring(0, arrow - 2).Trim();
-                string arrival = s.Substring(arrow + 1, s.Length - arrow - 1).Trim();
-                if (flights.ContainsKey(departure))
-                {
-                    flights[departure].Add(arrival);
-                }
-                else
-                {
-                    var newcity = new List<string>();
-                    newcity.Add(arrival);
-                    flights.Add(departure, newcity);
-                }
+                _flightList.AddDestination(s);              
             }
-            char key = '1';
 
+            char key = '1';
             while (key != ' ')
             {
-                DisplayFirst();
+                DisplayFirstMenu();
                 key = Console.ReadKey().KeyChar;
                 if (key == '1')
                 {

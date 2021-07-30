@@ -31,7 +31,12 @@ namespace WordCount
                 {
                     characters++;
                 }
-                else if (text[i] == '\n') lines++;
+                else if (text[i] == '\n')
+                {
+                    lines++;
+                    words++;
+                }
+
             }
 
             if (words > 0)
