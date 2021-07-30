@@ -8,7 +8,7 @@ namespace Hierarchy
         protected string _animalName;
         protected string _animalType;
         protected double _animalWeight;
-        protected int _foodEaten;
+        protected double _foodEaten;
 
         protected Animal(string Name, string Type, double Weight)
         {
@@ -19,10 +19,27 @@ namespace Hierarchy
 
         public abstract void MakeSound();
 
-        public abstract void Eat(Food food, int foodEaten);
+        public abstract void Eat(Food food, double foodEaten);
 
         public abstract void DisplayInfo();
-      
+
+        public string GetName()
+        {
+            return _animalName;
+        }
+
+        public string GetType()
+        {
+            return _animalType;
+        }
+
+        public double GetWeight()
+        {
+            return _animalWeight;
+        }
+
+        public abstract string GetLivingRegion();
+        
     }
 
     public abstract class Mammal : Animal
@@ -38,7 +55,13 @@ namespace Hierarchy
         {
             Console.WriteLine($"{_animalName} [{_animalType}, {_animalWeight}, {_livingRegion}, {_foodEaten}]");
         }
+
+        public override string GetLivingRegion()
+        {
+            return _livingRegion;
+        }
     }
+
 
     public abstract class Felime : Mammal
     {
@@ -67,18 +90,27 @@ namespace Hierarchy
             Console.Beep(1000, 1000);
         }
 
-        public override void Eat(Food food, int foodEaten)
+        public override void Eat(Food food, double foodEaten)
         {
             if (food.FoodType() == "Vegetable" || food.FoodType() == "Meat") 
             {
+                foodEaten = (food.GetQuantity() >= foodEaten) ? foodEaten : food.GetQuantity();
                 this._foodEaten += foodEaten;
+                _animalWeight += foodEaten;
+                food.Eaten(foodEaten);
             }
             else 
             {
                 Console.WriteLine(this._animalName + "s are not eating that type of food");
             }
         }
+
+        public string GetBreed()
+        {
+            return _breed;
+        }
     }
+
     public class Tiger : Felime
     {
         private string _breed;
@@ -93,11 +125,14 @@ namespace Hierarchy
             Console.Beep(200, 1000);
         }
 
-        public override void Eat(Food food, int foodEaten)
+        public override void Eat(Food food, double foodEaten)
         {
             if (food.FoodType() == "Meat") 
             {
+                foodEaten = (food.GetQuantity() >= foodEaten) ? foodEaten : food.GetQuantity();
                 this._foodEaten += foodEaten;
+                _animalWeight += foodEaten;
+                food.Eaten(foodEaten);
             }
             else 
             {
@@ -118,11 +153,14 @@ namespace Hierarchy
             Console.Beep(6000, 1000);
         }
 
-        public override void Eat(Food food, int foodEaten)
+        public override void Eat(Food food, double foodEaten)
         {
             if (food.FoodType() == "Vegetable") 
-            {               
+            {
+                foodEaten = (food.GetQuantity() >= foodEaten) ? foodEaten : food.GetQuantity();
                 this._foodEaten += foodEaten;
+                _animalWeight += foodEaten;
+                food.Eaten(foodEaten);
             }
             else 
             {
@@ -143,11 +181,14 @@ namespace Hierarchy
             Console.Beep(300, 1000);
         }
 
-        public override void Eat(Food food, int foodEaten)
+        public override void Eat(Food food, double foodEaten)
         {
-            if (food.FoodType() == "Vegetable")
-            {              
+            if (food.FoodType() == "Vegetable") 
+            {
+                foodEaten = (food.GetQuantity() >= foodEaten) ? foodEaten : food.GetQuantity();
                 this._foodEaten += foodEaten;
+                _animalWeight += foodEaten;
+                food.Eaten(foodEaten);
             }
             else 
             {
