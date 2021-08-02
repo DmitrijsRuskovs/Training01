@@ -119,7 +119,7 @@ Write a console program named Histogram that reads a list of exam scores from an
 80-89: ******
 90-99: **********
   100: *
-```
+```6
 
 ## Exercise #8
 
