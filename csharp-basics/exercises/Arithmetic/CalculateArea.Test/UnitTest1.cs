@@ -3,83 +3,69 @@ using System;
 
 
 namespace CalculateArea.Test
-{
-    
-    
+{       
     public class Tests
     {
-        private string _expectedMessage;
-        private double _expectedResult;
-
-        [SetUp]
-        public void Setup()
-        {
-        }
+        private double _expectedResult;       
 
         [Test]
-        public void AreaOfCircle_NormalArea()
+        public void AreaOfCircle_AreaOfRadius5_CalculatesArea()
         {
-            _expectedResult = 78.539;
-                double result =Geometry.areaOfCircle(5);
+            // Arrange
+            _expectedResult = Math.PI * 25;
+
+            // Act
+            double result = Geometry.areaOfCircle(5);
+            
+            // Assert
             Assert.AreEqual(_expectedResult, result, 0.001, "78.54 is an area of Circle of radius 5");
         }
 
         [Test]
-        public void AreaOfCircle_NegativeRadiusArea()
-        {       
-            try
-            {
-                double result = Geometry.areaOfCircle(-5);
-                Assert.Fail("no exception thrown");
-            }
-            catch (Exception ex)
-            {
-                Assert.That(ex.Message, Is.EqualTo("Error! Enter positive arguments!"));
-            }
+        public void AreaOfCircle_NegativeRadiusInput_ExceptionThrown()
+        {
+            //Assert           
+            Assert.Throws<NotPositiveArgumentException>(() => Geometry.areaOfCircle(-5),"No Exception thrown!");          
         }
 
         [Test]
-        public void AreaOfRectangle_NormalArea()
+        public void AreaOfRectangle_AreaOf25_CalculatesArea()
         {
-            _expectedResult = 25;
+            // Arrange
+            _expectedResult = 5 * 5;
+
+            //Act
             double result = Geometry.areaOfRectangle(5,5);
+
+            //Assert
             Assert.AreEqual(_expectedResult, result, 0.001, "25 is an area of Rectangle of 5 x 5");
         }
 
         [Test]
-        public void AreaOfRectangle_NegativeArgumentArea()
+        public void AreaOfRectangle_NegativeArgumentArea_ThrowException()
         {
-            try
-            {
-                double result = Geometry.areaOfRectangle(-5,5);
-                Assert.Fail("no exception thrown");
-            }
-            catch (Exception ex)
-            {
-                Assert.That(ex.Message, Is.EqualTo("Error! Enter positive arguments!"));
-            }
+            //Assert
+            Assert.Throws<NotPositiveArgumentException>(() => Geometry.areaOfRectangle(-5, 5), "No Exception thrown!");           
         }
 
         [Test]
-        public void AreaOfTriangle_NormalArea()
+        public void AreaOfTriangle_AreaOfTriangle_CalculatesArea()
         {
+            // Arrange
             _expectedResult = 12.5;
+
+            //Act
             double result = Geometry.areaOfTriangle(5, 5);
+
+            //Assert
             Assert.AreEqual(_expectedResult, result, 0.001, "12.5 is an area of Rectangle of h5 x b5");
         }
 
         [Test]
-        public void AreaOfTriangle_NegativeArgumentArea()
+        public void AreaOfTriangle_NegativeArgumentArea_ThrowException()
         {
-            try
-            {
-                double result = Geometry.areaOfTriangle(-5, 5);
-                Assert.Fail("no exception thrown");
-            }
-            catch (Exception ex)
-            {
-                Assert.That(ex.Message, Is.EqualTo("Error! Enter positive arguments!"));
-            }
+            //Assert
+            Assert.Throws<NotPositiveArgumentException>(() => Geometry.areaOfTriangle(-5, 5), "No Exception thrown!");
         }
     }
 }
