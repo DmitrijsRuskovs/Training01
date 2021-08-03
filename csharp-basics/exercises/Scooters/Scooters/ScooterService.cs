@@ -12,13 +12,27 @@ namespace Scooters
 
         public void AddScooter(string id, decimal pricePerMinute)
         {
-            _scooterList.Add(id, new Scooter(id, pricePerMinute));
+            if (!_scooterList.ContainsKey(id))
+            {
+                _scooterList.Add(id, new Scooter(id, pricePerMinute));
+            }
         }
 
         public void RemoveScooter(string id)
         {
             if (!_scooterList[id].IsRented)
             {
+                _scooterList.Remove(id);
+            }
+        }
+
+        public void ChangeScooterId(string id, string newId)
+        {
+            if (!_scooterList.ContainsKey(newId))
+            {
+                Scooter currentScooter = GetScooterById(id);
+                currentScooter.Id = newId;
+                _scooterList.Add(newId, currentScooter);
                 _scooterList.Remove(id);
             }
         }

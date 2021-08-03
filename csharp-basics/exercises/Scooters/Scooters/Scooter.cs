@@ -12,6 +12,8 @@ namespace Scooters
         DateTime _rentalStartTime;
         DateTime _rentalEndTime;
         List<RentalData> _rentalHistory = new List<RentalData>();
+        private const int MINUTES_IN_DAY = 1440;
+        private const int MAXIMUM_RENT_SUM_PER_DAY = 20;
 
         struct RentalData
         {
@@ -20,53 +22,56 @@ namespace Scooters
             public int Year;
             public decimal PriceForWholeRentalPeriod;
 
-            public RentalData(DateTime startTime,DateTime endTime, decimal priceForWholeRentalPeriod)
+            public RentalData(DateTime startTime, DateTime endTime, decimal priceForWholeRentalPeriod)
             {
                 StartTime = startTime;
                 EndTime = endTime;
                 PriceForWholeRentalPeriod = priceForWholeRentalPeriod;
                 Year = endTime.Year;
             }
-        }
+        }      
        
         public Scooter(string id, decimal pricePerMinute)
         {
             _id = id;
             _pricePerMinute = pricePerMinute;
             _isRented = false;
-
         }
-        
-        public decimal GetRentalHistoryIncomeByYear(int year, bool includeCurrent)
+
+        public decimal GetLastRentalEntryPrice()
+        {
+            return _rentalHistory[_rentalHistory.Count - 1].PriceForWholeRentalPeriod;
+        }
+
+        public void AddToRentalHistory(DateTime rentalStart, DateTime rentalEnd)
+        {
+            _rentalHistory.Add(new RentalData(rentalStart, rentalEnd, GetRentPrice(rentalStart, rentalEnd)));
+        }
+
+        public decimal GetRentalHistoryIncome(int? year, bool includeCurrent)
         {
             decimal result = 0;
+
             foreach (var entry in _rentalHistory)
             {
-                if (entry.Year == year) result += entry.PriceForWholeRentalPeriod;
-            }
-
-            if (includeCurrent && _rentalStartTime.Year == year)
-            {
-                if (_pricePerMinute * 1440 < 20)
+                if (year.HasValue)
                 {
-                    result += GetTotalTimeOfLastRent() * _pricePerMinute;
+                    if (entry.Year == year.Value)
+                    {
+                        result += entry.PriceForWholeRentalPeriod;
+                    }
                 }
                 else
                 {
-                    result += GetTotalTimeOfLastRent() / 1440 * 20;
-                    long lastDayMinutes = GetTotalTimeOfLastRent() % 1440;
-                    result += (lastDayMinutes * _pricePerMinute < 20) ? lastDayMinutes * _pricePerMinute : 20;
+                    result += entry.PriceForWholeRentalPeriod;
                 }
-            }
+            }                     
 
-            return result;
-        }
-        public decimal GetRentalHistoryIncomeInTotal(bool includeCurrent)
-        {
-            decimal result = 0;
-            foreach (var entry in _rentalHistory)
+            if (_isRented && includeCurrent && _rentalStartTime.Year == year.Value)
             {
-               result += entry.PriceForWholeRentalPeriod;
+                result += (DateTime.Now.Year == year.Value) ? 
+                    GetRentPrice(_rentalStartTime, DateTime.Now) :
+                    GetRentPrice(_rentalStartTime, new DateTime(year.Value, 12, 31, 23, 59, 59));
             }
 
             return result;
@@ -86,72 +91,43 @@ namespace Scooters
 
         public void StartRent()
         {
-            _rentalStartTime = DateTime.Now;
-            _isRented = true;
+            if (!_isRented)
+            {
+                _rentalStartTime = DateTime.Now;
+                _isRented = true;
+            }
         }
 
         public void StopRent()
         {
-            _rentalEndTime = DateTime.Now;
-            _isRented = false;
-            _rentalHistory.Add(new RentalData(_rentalStartTime, _rentalEndTime, GetTotalRentPriceOfLastRent()));
+            if (_isRented)
+            {
+                _rentalEndTime = DateTime.Now;
+                _isRented = false;
+                _rentalHistory.Add(new RentalData(_rentalStartTime, _rentalEndTime, GetRentPrice(_rentalStartTime, _rentalEndTime)));
+            }
         }
 
-        public long GetTotalTimeOfLastRent()
+        public long GetTimeOfRent(DateTime startRent, DateTime endRent)
         {
-            TimeSpan time = _rentalEndTime - _rentalStartTime;
-            return (_isRented) ? 0 : (long)Math.Floor(time.TotalMinutes);
+            TimeSpan time = endRent - startRent;
+            return (long)Math.Floor(time.TotalMinutes);
         }
-
-        public long GetTotalTimeOfCurrentRentInStartYear()
-        {           
-            DateTime finishTime = (DateTime.Now.Year > _rentalStartTime.Year) ? new DateTime(_rentalStartTime.Year, 12, 31, 23, 59, 59) : DateTime.Now;
-            TimeSpan time = finishTime - _rentalStartTime;
-            return (_isRented) ? 0 : (long)Math.Floor(time.TotalMinutes);
-        }
-
-        public int GetFullDaysOfLastRent()
-        {
-            long totalMinutes = GetTotalTimeOfLastRent();
-            return (_isRented) ? 0 : (int)Math.Floor((decimal)totalMinutes / 1440);
-        }
-
-        public decimal GetTotalRentPriceOfUnfinishedRentCurrentYear()
+       
+        public decimal GetRentPrice(DateTime startTime, DateTime endTime)
         {
             decimal result = 0;
-            if (!_isRented)
-            {
-                if (_pricePerMinute * 1440 < 20)
+            
+                if (_pricePerMinute * MINUTES_IN_DAY < MAXIMUM_RENT_SUM_PER_DAY)
                 {
-                    result = GetTotalTimeOfCurrentRentInStartYear() * _pricePerMinute;
+                    result = GetTimeOfRent(startTime,endTime) * _pricePerMinute;
                 }
                 else
                 {
-                    result += GetTotalTimeOfCurrentRentInStartYear() / 1440 * 20;
-                    long lastDayMinutes = GetTotalTimeOfCurrentRentInStartYear() % 1440;
-                    result += (lastDayMinutes * _pricePerMinute < 20) ? lastDayMinutes * _pricePerMinute : 20;
-                }
-            }
-
-            return result;
-        }
-
-        public decimal GetTotalRentPriceOfLastRent()
-        {
-            decimal result = 0;
-            if (!_isRented)
-            {
-                if (_pricePerMinute * 1440 < 20)
-                {
-                    result = GetTotalTimeOfLastRent() * _pricePerMinute;
-                }
-                else
-                {
-                    result += GetTotalTimeOfLastRent() / 1440 * 20;
-                    long lastDayMinutes = GetTotalTimeOfLastRent() % 1440;
-                    result += (lastDayMinutes * _pricePerMinute < 20) ? lastDayMinutes * _pricePerMinute : 20;
-                }
-            }
+                    result += GetTimeOfRent(startTime, endTime) / MINUTES_IN_DAY * MAXIMUM_RENT_SUM_PER_DAY;
+                    long lastDayMinutes = GetTimeOfRent(startTime, endTime) % MINUTES_IN_DAY;
+                    result += (lastDayMinutes * _pricePerMinute < MAXIMUM_RENT_SUM_PER_DAY) ? lastDayMinutes * _pricePerMinute : MAXIMUM_RENT_SUM_PER_DAY;
+                }          
 
             return result;
         }
