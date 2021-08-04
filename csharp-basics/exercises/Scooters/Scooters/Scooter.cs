@@ -45,35 +45,54 @@ namespace Scooters
 
         public void AddToRentalHistory(DateTime rentalStart, DateTime rentalEnd)
         {
-            _rentalHistory.Add(new RentalData(rentalStart, rentalEnd, GetRentPrice(rentalStart, rentalEnd)));
+            TimeSpan time = rentalEnd - rentalStart;
+            if (time.TotalMinutes < 0)
+            {
+                throw new DateTimeException("Date input for rental period not correct! Rental end should be after start");
+            }
+            else if (rentalStart.Year > 2010 && rentalStart.Year <= DateTime.Now.Year && rentalEnd.Year > 2010 && rentalEnd.Year <= DateTime.Now.Year)
+            {
+                _rentalHistory.Add(new RentalData(rentalStart, rentalEnd, GetRentPrice(rentalStart, rentalEnd)));
+            }
+            else throw new DateTimeException("Date input for rental period not correct!");
         }
 
         public decimal GetRentalHistoryIncome(int? year, bool includeCurrent)
         {
             decimal result = 0;
-
-            foreach (var entry in _rentalHistory)
+            bool yearValid = true;
+            if (year.HasValue)
             {
-                if (year.HasValue)
+                if (year.Value < 2010 || year.Value > DateTime.Now.Year)
                 {
-                    if (entry.Year == year.Value)
+                    yearValid = false;
+                    throw new DateTimeException();
+                }
+            }
+            if (yearValid)
+            {
+                foreach (var entry in _rentalHistory)
+                {
+                    if (year.HasValue)
+                    {
+                        if (entry.Year == year.Value)
+                        {
+                            result += entry.PriceForWholeRentalPeriod;
+                        }
+                    }
+                    else
                     {
                         result += entry.PriceForWholeRentalPeriod;
                     }
                 }
-                else
+
+                if (_isRented && includeCurrent && _rentalStartTime.Year == year.Value)
                 {
-                    result += entry.PriceForWholeRentalPeriod;
+                    result += (DateTime.Now.Year == year.Value) ?
+                        GetRentPrice(_rentalStartTime, DateTime.Now) :
+                        GetRentPrice(_rentalStartTime, new DateTime(year.Value, 12, 31, 23, 59, 59));
                 }
-            }                     
-
-            if (_isRented && includeCurrent && _rentalStartTime.Year == year.Value)
-            {
-                result += (DateTime.Now.Year == year.Value) ? 
-                    GetRentPrice(_rentalStartTime, DateTime.Now) :
-                    GetRentPrice(_rentalStartTime, new DateTime(year.Value, 12, 31, 23, 59, 59));
             }
-
             return result;
         }
 

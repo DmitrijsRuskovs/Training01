@@ -4,11 +4,13 @@ using System.Collections;
 
 namespace Scooters
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static RentalCompany rentalCompanyIF;
+
+        public static void Main()
         {
-            Console.WriteLine("Hello Scooter World!");
+            rentalCompanyIF = new RentalCompany("IF");
         }
     }
 }

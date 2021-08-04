@@ -16,6 +16,12 @@ namespace Scooters
             {
                 _scooterList.Add(id, new Scooter(id, pricePerMinute));
             }
+            else throw new ScooterIdException("Scooter id exists!");
+        }
+
+        public bool ScooterIdExists(string id)
+        {
+            return _scooterList.ContainsKey(id);
         }
 
         public void RemoveScooter(string id)
@@ -24,6 +30,7 @@ namespace Scooters
             {
                 _scooterList.Remove(id);
             }
+            else throw new ScooterIsRentedException("Scooter is rented!");
         }
 
         public void ChangeScooterId(string id, string newId)
@@ -35,11 +42,16 @@ namespace Scooters
                 _scooterList.Add(newId, currentScooter);
                 _scooterList.Remove(id);
             }
+            else throw new ScooterIdException("New Scooter id already exists!");
         }
 
         public Scooter GetScooterById(string scooterId)
         {
-            return _scooterList[scooterId];
+            if (_scooterList.ContainsKey(scooterId))
+            {
+                return _scooterList[scooterId];
+            }
+            else throw new ScooterIdException("Scooter id does not exist!");
         }
 
         public List<Scooter> GetScooters()
