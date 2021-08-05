@@ -2,52 +2,85 @@
 
 namespace Scooters
 {
-    public class DateTimeException : Exception
+    public class ScooterActivityException : Exception
     {
-        public DateTimeException()
+        public ScooterActivityException()
         {
         }
 
-        public DateTimeException(string message)
+        public ScooterActivityException(string message)
             : base(message)
         {
         }
 
-        public DateTimeException(string message, Exception inner)
+        public ScooterActivityException(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
+    }
+    public class InvalidDateTimeException : Exception
+    {
+        public InvalidDateTimeException()
+        {
+        }
+
+        public InvalidDateTimeException(string message)
+            : base(message)
+        {
+        }
+
+        public InvalidDateTimeException(string message, Exception inner)
             : base(message, inner)
         {
         }
     }
 
-    public class ScooterIdException : Exception
+    public class DuplicateScooterIdException : Exception
     {
-        public ScooterIdException()
+        public DuplicateScooterIdException()
         {
         }
 
-        public ScooterIdException(string message)
+        public DuplicateScooterIdException(string message)
             : base(message)
         {
         }
 
-        public ScooterIdException(string message, Exception inner)
+        public DuplicateScooterIdException(string message, Exception inner)
             : base(message, inner)
         {
         }
     }
 
-    public class ScooterIsRentedException : Exception
+    public class ScooterIdNotFoundException : Exception
     {
-        public ScooterIsRentedException()
+        public ScooterIdNotFoundException()
         {
         }
 
-        public ScooterIsRentedException(string message)
+        public ScooterIdNotFoundException(string message)
             : base(message)
         {
         }
 
-        public ScooterIsRentedException(string message, Exception inner)
+        public ScooterIdNotFoundException(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
+    }
+
+    public class ScooterRentedException : Exception
+    {
+        public ScooterRentedException()
+        {
+        }
+
+        public ScooterRentedException(string message)
+            : base(message)
+        {
+        }
+
+        public ScooterRentedException(string message, Exception inner)
             : base(message, inner)
         {
         }

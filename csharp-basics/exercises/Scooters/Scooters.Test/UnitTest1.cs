@@ -159,11 +159,64 @@ namespace Scooters.Test
             //Assert
             Assert.AreEqual(_companyA.GetScooterService().GetScooters().Count, _expectedCount, "One of scooters was not removed by ScooterService");
 
+            //Arrange
+            _expectedCount = 1;
+
+            //Assert
+            Assert.AreEqual(_companyA.GetScooterService().GetNotActiveScooters().Count, _expectedCount, "One of scooters was not marked as Inactive by ScooterService");
+
             //Act
             _companyA.StartRent("Toyota01");          
 
             //Assert
             Assert.Throws<ScooterIsRentedException>(() => _companyA.GetScooterService().RemoveScooter("Toyota01"), "No Exception thrown if Scooter Under Rent is being removed!");
+        }
+
+        [Test]
+        public void ScooterService_ReNextActivateScooter_SuccesfullyActivated()
+        {
+            //Assert
+            Assert.Throws<ScooterActivityException>(() => _companyA.GetScooterService().RemoveScooter("Toyota02"), "No Exception thrown if not active Scooter is being removed!");
+
+            //Act
+            _companyA.GetScooterService().ReactivateScooter("Toyota02");
+
+            //Arrange
+            _expectedCount = 9;
+
+            //Assert
+            Assert.AreEqual(_companyA.GetScooterService().GetScooters().Count, _expectedCount, "One of scooters was not reactivated by ScooterService");
+
+            //Arrange
+            _expectedCount = 0;
+
+            //Assert
+            Assert.AreEqual(_companyA.GetScooterService().GetNotActiveScooters().Count, _expectedCount, "One of scooters was not marked as active by ScooterService");
+
+            //Assert
+            Assert.Throws<ScooterActivityException>(() => _companyA.GetScooterService().ReactivateScooter("Toyota02"), "No Exception thrown if active Scooter is being reactivated!");
+        }
+
+        [Test]
+        public void RentalCompany_CalculateIncomeOfNotActiveScooters_EqualTo77_8()
+        {
+            //Act
+            _companyA.GetScooterService().RemoveScooter("Honda01");
+            
+            //Arrange
+            _expectedResult = 77.8m;
+
+            //Assert
+            Assert.AreEqual(_companyA.CalculateIncome(2020, false), _expectedResult, "Income is not calculated correctly for non active scooters");
+
+            //Act
+            _companyA.GetScooterService().ReactivateScooter("Honda01");
+
+            //Arrange
+            _expectedResult = 77.8m;
+
+            //Assert
+            Assert.AreEqual(_companyA.CalculateIncome(2020, false), _expectedResult, "Income is not calculated correctly for non active scooters");
         }
 
         [Test]
@@ -205,6 +258,16 @@ namespace Scooters.Test
 
             //Assert
             Assert.AreEqual(Program.rentalCompanyIF.Name, "IF", "Company name not saved");
+        }
+
+        [Test]
+        public void RentalCompany_NewRentalCompanyInitiation_SuccessfullyInitiated()
+        {
+            //Act
+            _companyA.Name = "B";
+
+            //Assert
+            Assert.AreEqual(_companyA.Name, "B", "Company name not saved");
         }
 
         [Test]

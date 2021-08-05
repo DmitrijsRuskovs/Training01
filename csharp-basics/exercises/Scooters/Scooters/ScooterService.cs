@@ -12,11 +12,11 @@ namespace Scooters
 
         public void AddScooter(string id, decimal pricePerMinute)
         {
-            if (!_scooterList.ContainsKey(id))
+            if (!ScooterIdExists(id))
             {
                 _scooterList.Add(id, new Scooter(id, pricePerMinute));
             }
-            else throw new ScooterIdException("Scooter id exists!");
+            else throw new DuplicateScooterIdException("Scooter id exists!");
         }
 
         public bool ScooterIdExists(string id)
@@ -26,11 +26,24 @@ namespace Scooters
 
         public void RemoveScooter(string id)
         {
-            if (!_scooterList[id].IsRented)
+            if (_scooterList[id].IsActive)
             {
-                _scooterList.Remove(id);
+                if (!_scooterList[id].IsRented)
+                {
+                    _scooterList[id].DesActivate();
+                }
+                else throw new ScooterRentedException("Scooter is rented!");
             }
-            else throw new ScooterIsRentedException("Scooter is rented!");
+            else throw new ScooterActivityException("Scooter is not active!");
+        }
+
+        public void ReactivateScooter(string id)
+        {
+            if (!_scooterList[id].IsActive)
+            {
+                _scooterList[id].Activate();
+            }
+            else throw new ScooterActivityException("Scooter is still active!");
         }
 
         public void ChangeScooterId(string id, string newId)
@@ -42,26 +55,21 @@ namespace Scooters
                 _scooterList.Add(newId, currentScooter);
                 _scooterList.Remove(id);
             }
-            else throw new ScooterIdException("New Scooter id already exists!");
+            else throw new DuplicateScooterIdException("New Scooter id already exists!");
         }
 
         public Scooter GetScooterById(string scooterId)
         {
-            if (_scooterList.ContainsKey(scooterId))
+            if (ScooterIdExists(scooterId))
             {
                 return _scooterList[scooterId];
             }
-            else throw new ScooterIdException("Scooter id does not exist!");
+            else throw new ScooterIdNotFoundException("Scooter id does not exist!");
         }
 
-        public List<Scooter> GetScooters()
+        public Dictionary<string, Scooter> GetScooters()
         {
-            List<Scooter> result = new List<Scooter>();
-            foreach (KeyValuePair<string, Scooter> entry in _scooterList)
-            {
-                result.Add(entry.Value);
-            }
-            return result;
-        }
+            return _scooterList;
+        }           
     }
 }
