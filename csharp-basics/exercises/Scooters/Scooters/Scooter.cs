@@ -6,13 +6,12 @@ namespace Scooters
 {
     public class Scooter
     {
-        private string _id;
+        protected string _id;
         public bool IsActive;
         private decimal _pricePerMinute;
         private bool _isRented;
         public DateTime RentalStartTime;
-        public DateTime RentalEndTime;
-    
+        public DateTime RentalEndTime;   
        
         public Scooter(string id, decimal pricePerMinute)
         {
@@ -20,17 +19,7 @@ namespace Scooters
             _pricePerMinute = pricePerMinute;
             _isRented = false;
             IsActive = true;
-        }
-
-        public void Activate()
-        {
-            IsActive = true;
-        }
-
-        public void DesActivate()
-        {
-            IsActive = false;
-        }    
+        }  
 
         public string Id
         {

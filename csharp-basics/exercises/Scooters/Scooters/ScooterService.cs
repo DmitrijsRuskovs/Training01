@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System;
 
 namespace Scooters
 {
     public class ScooterService : IScooterService
     {
-        private static Dictionary<string, Scooter> _scooterList = new Dictionary<string, Scooter>();
+        private static List<Scooter> _scooterList = new List<Scooter>();
 
         public ScooterService()
         {
@@ -14,23 +17,32 @@ namespace Scooters
         {
             if (!ScooterIdExists(id))
             {
-                _scooterList.Add(id, new Scooter(id, pricePerMinute));
+                _scooterList.Add(new Scooter(id, pricePerMinute));
             }
             else throw new DuplicateScooterIdException("Scooter id exists!");
         }
 
-        public bool ScooterIdExists(string id)
+        public bool ScooterIdExists(string scooterId)
         {
-            return _scooterList.ContainsKey(id);
+            return _scooterList.Find(x => x.Id == scooterId)==null?false:true;
+
+            /*bool result = false;
+            foreach (Scooter scooter in _scooterList)
+            {
+                if (scooter.Id == id) result = true;
+            }
+
+            return result;*/
         }
 
         public void RemoveScooter(string id)
         {
-            if (_scooterList[id].IsActive)
+            Scooter scooter = GetScooterById(id);
+            if (scooter.IsActive)
             {
-                if (!_scooterList[id].IsRented)
+                if (!scooter.IsRented)
                 {
-                    _scooterList[id].DesActivate();
+                    scooter.IsActive = false;
                 }
                 else throw new ScooterRentedException("Scooter is rented!");
             }
@@ -39,21 +51,19 @@ namespace Scooters
 
         public void ReactivateScooter(string id)
         {
-            if (!_scooterList[id].IsActive)
+            Scooter scooter = GetScooterById(id);
+            if (!scooter.IsActive)
             {
-                _scooterList[id].Activate();
+                scooter.IsActive = true;
             }
             else throw new ScooterActivityException("Scooter is still active!");
         }
 
         public void ChangeScooterId(string id, string newId)
         {
-            if (!_scooterList.ContainsKey(newId))
+            if (!ScooterIdExists(newId))
             {
-                Scooter currentScooter = GetScooterById(id);
-                currentScooter.Id = newId;
-                _scooterList.Add(newId, currentScooter);
-                _scooterList.Remove(id);
+                GetScooterById(id).Id = newId;
             }
             else throw new DuplicateScooterIdException("New Scooter id already exists!");
         }
@@ -62,12 +72,12 @@ namespace Scooters
         {
             if (ScooterIdExists(scooterId))
             {
-                return _scooterList[scooterId];
+                return _scooterList.Find(x => x.Id == scooterId);
             }
             else throw new ScooterIdNotFoundException("Scooter id does not exist!");
         }
 
-        public Dictionary<string, Scooter> GetScooters()
+        public IList<Scooter> GetScooters()
         {
             return _scooterList;
         }           

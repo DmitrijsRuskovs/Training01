@@ -7,7 +7,7 @@ namespace Scooters
     {     
         public void AddScooter(string id, decimal pricePerMinute);       
         public void RemoveScooter(string id);
-        public Dictionary<string, Scooter> GetScooters();     
+        public IList<Scooter> GetScooters();     
         public Scooter GetScooterById(string scooterId);
     }
 }
