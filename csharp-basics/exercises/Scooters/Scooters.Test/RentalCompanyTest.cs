@@ -11,8 +11,7 @@ namespace Scooters.Test
         private string _expectedName = "A";
         static private ScooterService _scooterService = new ScooterService();
         static private List<RentalData> _rentalHistory = new List<RentalData>();
-        private IRentalCompany _companyA = new RentalCompany("A", _scooterService, _rentalHistory);
-        private IRentalCompany _companyB = new RentalCompany("B");
+        private IRentalCompany _companyA = new RentalCompany("A", _scooterService, _rentalHistory);      
 
         [Test]
         public void IRentalCompany_01GetName_NameReturned()
@@ -21,7 +20,7 @@ namespace Scooters.Test
             _expectedName = "A";
 
             //Assert
-            Assert.AreEqual(_expectedName, _companyA.Name(), "Company Name has not been saved correctle");
+            Assert.AreEqual(_expectedName, RentalCompany.Name, "Company Name has not been saved correctle");
         }
 
         [Test]
@@ -68,7 +67,7 @@ namespace Scooters.Test
         }
 
         [Test]
-        public void IScooterService_04StartRentOfScooterUnderRentAndVV_ExceptionThrown()
+        public void IRentalCompany_04StartRentOfScooterUnderRentAndVV_ExceptionThrown()
         {
             //Act
             _scooterService.AddScooter("Mazda03", 0.015m);
@@ -81,7 +80,7 @@ namespace Scooters.Test
         }
 
         [Test]
-        public void IScooterService_05StartEndRentOfNonExistingScooter_ExceptionThrown()
+        public void IRentalCompany_05StartEndRentOfNonExistingScooter_ExceptionThrown()
         {
             //Assert
             Assert.Throws<ScooterIdNotFoundException>(() => _companyA.StartRent("Mazda003"), "No Exception thrown if Scooter id not found is being rented!");
@@ -203,13 +202,14 @@ namespace Scooters.Test
         }
 
         [Test]
-        public void IRentalCompany_14GetNameOfNameConstructor_NameReturned()
+        public void IRentalCompany_14GetNameSingleArgumentConstructor_NameReturned()
         {
             //Arrange
-            _expectedName = "B";
+            _expectedName = "A";
+            IRentalCompany _companyA = new RentalCompany("A");
 
             //Assert
-            Assert.AreEqual(_expectedName, _companyB.Name(), "Company Name has not been saved correctly for Name constructor");
+            Assert.AreEqual(_expectedName, RentalCompany.Name, "Company Name has not been saved correctle");
         }
     }
 }

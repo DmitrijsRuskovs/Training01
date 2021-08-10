@@ -6,7 +6,7 @@ namespace Scooters
 {
     public partial class RentalCompany : IRentalCompany
     {
-        private string _name;
+        private static string _name;
         public IScooterService _scooterService = new ScooterService();
         List<RentalData> _rentalHistory = new List<RentalData>();        
 
@@ -22,9 +22,9 @@ namespace Scooters
             _rentalHistory = rentalHistory;
         }
 
-        public string Name()
+        public static string Name
         {
-           return _name;          
+            get => _name;
         }
 
         public void StartRent(string id)

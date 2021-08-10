@@ -24,15 +24,7 @@ namespace Scooters
 
         public bool ScooterIdExists(string scooterId)
         {
-            return _scooterList.Find(x => x.Id == scooterId)==null?false:true;
-
-            /*bool result = false;
-            foreach (Scooter scooter in _scooterList)
-            {
-                if (scooter.Id == id) result = true;
-            }
-
-            return result;*/
+            return _scooterList.Any(x => x.Id == scooterId);
         }
 
         public void RemoveScooter(string id)
@@ -79,7 +71,7 @@ namespace Scooters
 
         public IList<Scooter> GetScooters()
         {
-            return _scooterList;
+            return new List<Scooter>(_scooterList);           
         }           
     }
 }
