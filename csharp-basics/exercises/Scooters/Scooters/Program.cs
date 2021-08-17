@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace Scooters
 {
@@ -9,7 +10,7 @@ namespace Scooters
 
         public static void Main()
         {
-            rentalCompanyIF = new RentalCompany("IF");
+            rentalCompanyIF = new RentalCompany("IF");          
         }
     }
 }
