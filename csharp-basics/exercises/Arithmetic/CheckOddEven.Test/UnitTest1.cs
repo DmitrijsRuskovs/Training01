@@ -9,11 +9,12 @@ namespace CheckOddEven.Test
         [Test]
         public void IsIntegerOdd_EvenNumberInput_ReturnsFalse()
         {
-            //Act
-            bool result = CheckOddEven.Program.IsIntegerOdd(4);
 
             //Arrange
             _expected = false;
+            
+            //Act
+            bool result = CheckOddEven.Program.IsIntegerOdd(4);
 
             // Assert
             Assert.AreEqual(_expected, result, "Even number. Should be returned False");
@@ -22,12 +23,12 @@ namespace CheckOddEven.Test
         [Test]
         public void IsIntegerOdd_OddNumberInput_ReturnsTrue()
         {
-            //Act
-            bool result = CheckOddEven.Program.IsIntegerOdd(13);
-
             //Arrange
             _expected = true;
 
+            //Act
+            bool result = CheckOddEven.Program.IsIntegerOdd(13);
+           
             // Assert
             Assert.AreEqual(_expected, result, "Odd number. Should be returned True");
         }
@@ -35,12 +36,12 @@ namespace CheckOddEven.Test
         [Test]
         public void IsIntegerOdd_NegativeOddInput_ReturnsTrue()
         {
-            //Act
-            bool result = CheckOddEven.Program.IsIntegerOdd(-13);
-
             //Arrange
             _expected = true;
 
+            //Act
+            bool result = CheckOddEven.Program.IsIntegerOdd(-13);
+          
             // Assert
             Assert.AreEqual(_expected, result, "Odd negative number. Should be returned True");
         }
@@ -48,11 +49,11 @@ namespace CheckOddEven.Test
         [Test]
         public void IsIntegerOdd_ZeroInput_ReturnsFalse()
         {
-            //Act
-            bool result = CheckOddEven.Program.IsIntegerOdd(0);
-
             //Arrange
             _expected = false;
+
+            //Act
+            bool result = CheckOddEven.Program.IsIntegerOdd(0);           
 
             // Assert
             Assert.AreEqual(_expected, result, "Zero is Even number. Should be returned False");

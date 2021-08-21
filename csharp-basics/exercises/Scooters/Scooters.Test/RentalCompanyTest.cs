@@ -120,7 +120,7 @@ namespace Scooters.Test
         }
 
         [Test]
-        public void IRentalCompany_09CalculateIncomeOfNotActiveScooters_EqualTo47_7()
+        public void IRentalCompany_09CalculateIncomeOfNotActiveScooters1_EqualTo47_7()
         {
             //Arrange
             _expectedResult = 47.7m;
@@ -131,19 +131,34 @@ namespace Scooters.Test
 
             //Assert
             Assert.AreEqual(_expectedResult, _companyA.CalculateIncome(2020, false), "Income is not calculated correctly for non active scooters");
-            
-            //Act
-            _scooterService.RemoveScooter("Mazda07");
-           
-            //Assert
-            Assert.AreEqual(_expectedResult, _companyA.CalculateIncome(2020, false), "Income is not calculated correctly for non active scooters");
+        }
+
+        [Test]
+        public void IRentalCompany_09CalculateIncomeOfNotActiveScooters2_EqualTo47_7()
+        {
+            //Arrange
+            _expectedResult = 47.7m;
 
             //Act
-            _scooterService.ReactivateScooter("Mazda07");
-           
+            _scooterService.RemoveScooter("Mazda07");
+
             //Assert
             Assert.AreEqual(_expectedResult, _companyA.CalculateIncome(2020, false), "Income is not calculated correctly for non active scooters");
         }
+
+        [Test]
+        public void IRentalCompany_09CalculateIncomeOfNotActiveScooters3_EqualTo47_7()
+        {
+            //Arrange
+            _expectedResult = 47.7m;
+
+            //Act
+            _scooterService.ReactivateScooter("Mazda07");
+
+            //Assert
+            Assert.AreEqual(_expectedResult, _companyA.CalculateIncome(2020, false), "Income is not calculated correctly for non active scooters");
+        }
+
 
         [Test]
         public void IRentalCompany_10CalculateIncome2020IfMoreThan20EurPer24h_EqualTo67_7()
@@ -196,8 +211,8 @@ namespace Scooters.Test
 
             //Assert
             Assert.AreEqual(_expectedResult, _companyA.CalculateIncome(DateTime.Now.Year, true), "Income is not calculated correctly for current rent");
-
-            //Act
+           
+            //Arrange
             _companyA.EndRent("Lexus01");
         }
 

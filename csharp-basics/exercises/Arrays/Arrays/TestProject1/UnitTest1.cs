@@ -10,7 +10,6 @@ namespace TestProject1
         [SetUp]
         public void Setup()
         {
-            //Act
             _target = new ArrayReorganization();
             _target.AssembleArrays();
         }
