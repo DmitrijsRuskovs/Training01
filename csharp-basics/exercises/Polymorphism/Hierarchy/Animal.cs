@@ -39,7 +39,7 @@ namespace Hierarchy
         }
 
         public abstract string GetLivingRegion();
-        
+
     }
 
     public abstract class Mammal : Animal
@@ -61,8 +61,7 @@ namespace Hierarchy
             return _livingRegion;
         }
     }
-
-
+    
     public abstract class Felime : Mammal
     {
         protected Felime(string Name, string Type, double Weight, string LivingRegion) : base(Name, Type, Weight, LivingRegion)
@@ -152,7 +151,7 @@ namespace Hierarchy
             Console.WriteLine("piiiiiiiii...piii");
             Console.Beep(6000, 1000);
         }
-
+        
         public override void Eat(Food food, double foodEaten)
         {
             if (food.FoodType() == "Vegetable") 
