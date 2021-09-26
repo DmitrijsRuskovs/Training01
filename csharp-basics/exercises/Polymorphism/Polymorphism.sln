@@ -15,6 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakeSounds", "MakeSounds\Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persons", "Persons\Persons.csproj", "{A599F54E-6E04-4672-A655-E92D02CF143E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DragRace.Test", "DragRace.Test\DragRace.Test.csproj", "{7A33E71E-9681-4148-8E60-B914D374D5F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hierarchy.Test", "Hierarchy.Test\Hierarchy.Test.csproj", "{02FCB9ED-9D5A-4173-A6C4-575C0B917D8A}"
+EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +50,15 @@ Global
 		{A599F54E-6E04-4672-A655-E92D02CF143E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A599F54E-6E04-4672-A655-E92D02CF143E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A599F54E-6E04-4672-A655-E92D02CF143E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A33E71E-9681-4148-8E60-B914D374D5F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A33E71E-9681-4148-8E60-B914D374D5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A33E71E-9681-4148-8E60-B914D374D5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A33E71E-9681-4148-8E60-B914D374D5F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02FCB9ED-9D5A-4173-A6C4-575C0B917D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02FCB9ED-9D5A-4173-A6C4-575C0B917D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02FCB9ED-9D5A-4173-A6C4-575C0B917D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02FCB9ED-9D5A-4173-A6C4-575C0B917D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

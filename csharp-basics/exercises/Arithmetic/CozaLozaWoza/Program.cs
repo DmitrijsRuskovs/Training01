@@ -2,8 +2,34 @@
 
 namespace CozaLozaWoza
 {
-    class Program
+    public class Program
     {
+        public static string CozaLozaWoza(int number)
+        {
+            string result = "";
+            if (number % 3 == 0)
+            {
+                result += "Coza";
+            }
+
+            if (number % 5 == 0)
+            {
+                result += "Loza";
+            }
+
+            if (number % 7 == 0)
+            {
+                result += "Woza";
+            }
+
+            if (result == "")
+            {
+                result += number.ToString();
+            }
+
+            return result;
+        }
+
         static void Main(string[] args)
         {
             const int numbersPerLine = 11;
@@ -15,30 +41,13 @@ namespace CozaLozaWoza
                 string numberSetLine = "";
                 for (int i = 1; i <= numbersPerLine; i++)
                 {
-                    currentIndex++;
-                    string currentLine = "";
+                    currentIndex++;                   
                     if (currentIndex > higherBound)
                     {
                         break;
                     }
-                    if (currentIndex % 3 == 0)
-                    {
-                        currentLine += "Coza";
-                    }
-                    if (currentIndex % 5 == 0)
-                    {
-                        currentLine += "Loza";
-                    }
-                    if (currentIndex % 7 == 0)
-                    {
-                        currentLine += "Woza";
-                    }
-                    if (currentLine.Length == 0)
-                    {
-                        currentLine += currentIndex.ToString();
-                    }
-
-                    numberSetLine += currentLine + " ";
+                                      
+                    numberSetLine += CozaLozaWoza(currentIndex) + " ";
                 }
 
                 Console.WriteLine(numberSetLine);

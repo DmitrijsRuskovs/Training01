@@ -2,7 +2,7 @@
 
 namespace DateTest
 {
-    partial class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,7 +17,7 @@ namespace DateTest
 
             foreach (Date i in dates)
             {
-                i.DisplayDate();
+                Console.WriteLine(i.DisplayDate());
             }
 
             Console.ReadKey();

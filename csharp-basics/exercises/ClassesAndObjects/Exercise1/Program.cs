@@ -12,7 +12,7 @@ namespace Exercise1
                 i.PrintProduct();
                 i.SetPrice(5.0);
                 i.SetQuantity(5);
-                i.PrintProduct();
+                Console.WriteLine(i.PrintProduct());
             }
 
             Console.ReadKey();         

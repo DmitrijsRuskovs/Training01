@@ -73,7 +73,7 @@ namespace CalculateArea
             var keyboard = Console.ReadLine();
             decimal.TryParse(keyboard, out var radius);
             // Display output
-            Console.WriteLine("The circle's area is " + Geometry.areaOfCircle(radius));
+            Console.WriteLine("The circle's area is " + Geometry.AreaOfCircle(radius));
         }
 
         public static void calculateRectangleArea()
@@ -86,7 +86,7 @@ namespace CalculateArea
             Console.WriteLine("Enter width? ");
             keyboard = Console.ReadLine();
             decimal.TryParse(keyboard, out width);
-            Console.WriteLine("The rectangle's area is " + Geometry.areaOfRectangle(length, width));
+            Console.WriteLine("The rectangle's area is " + Geometry.AreaOfRectangle(length, width));
         }
 
         public static void calculateTriangleArea()
@@ -99,7 +99,7 @@ namespace CalculateArea
             Console.WriteLine("Enter triangle's height? ");
             keyboard = Console.ReadLine();
             decimal.TryParse(keyboard, out height);
-            Console.WriteLine("The triangle's area is " + Geometry.areaOfTriangle(ground, height));
+            Console.WriteLine("The triangle's area is " + Geometry.AreaOfTriangle(ground, height));
         }
     }
 }

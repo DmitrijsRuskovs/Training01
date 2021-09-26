@@ -25,6 +25,11 @@ namespace PhoneBook
             return _dataSD[name];
         }
 
+        public int GetEntryCount()
+        {
+            return _dataSD.Count;
+        }
+
         public void PutNumber(string name, string number) 
         {
             if (name == null || number == null) 

@@ -2,19 +2,31 @@
 {
     public abstract class Food
     {
-        protected int _quantity;
+        protected double _quantity;
 
         protected Food()
         {
             _quantity = 0;
         }
 
-        protected Food(int quantity)
+        protected Food(double quantity)
         {
             _quantity = quantity;
         }
 
-        public int GetQuantity()
+        public void Eaten(double foodEaten)
+        {
+            if (_quantity>= foodEaten) 
+            {
+                _quantity -= foodEaten;
+            }
+            else 
+            {
+                _quantity = 0;
+            }
+        }
+
+        public double GetQuantity()
         {
             return this._quantity;
         }
@@ -29,7 +41,7 @@
             this._quantity = 0;
         }
 
-        public Vegetable(int quantity)
+        public Vegetable(double quantity)
         {
             this._quantity = quantity;
         }
@@ -47,7 +59,7 @@
             this._quantity = 0;
         }
 
-        public Meat(int quantity)
+        public Meat(double quantity)
         {
             this._quantity = quantity;
         }
